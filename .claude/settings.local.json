@@ -9,7 +9,10 @@
       "Bash(python3 *)",
       "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
       "Read(//Applications/Microsoft Edge.app/Contents/MacOS/**)",
-      "Read(//System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/MacOS/**)"
+      "Read(//System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/MacOS/**)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(GIT_CURL_VERBOSE=1 GIT_TRACE=1 git push origin clauV2)"
     ]
   }
 }
