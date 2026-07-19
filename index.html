@@ -3,718 +3,1560 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>衣物洗护完整矩阵 · 品牌家族</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="威莱洗护矩阵 - 五大专业品牌覆盖全家庭洗护需求：威露士专业杀菌、Na高端香氛、Lamama母婴专护、菁华天然植萃、纺优美专业护理。让每个家庭找到适合自己的洗护方式。">
+<meta name="keywords" content="威莱,威露士,Walch,Na,奈十八本,Lamama,菁华,纺优美,洗护品牌,家庭洗护,母婴洗护,香氛洗护,专业细分,协同守护">
+<meta name="author" content="威莱集团 Welly Care Group">
+<meta name="theme-color" content="#FAFAF8">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wellycarematrix.com/">
+<meta property="og:title" content="威莱洗护矩阵 - 专业细分 协同守护 | Welly Care Matrix">
+<meta property="og:description" content="五大专业品牌，从大众到轻奢的全方位洗护生态系统">
+<meta property="og:image" content="/assets/og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://wellycarematrix.com/">
+<meta property="twitter:title" content="威莱洗护矩阵 - 专业细分 协同守护">
+<meta property="twitter:description" content="五大专业品牌，覆盖从大众到轻奢的全方位洗护需求">
+<meta property="twitter:image" content="/assets/og-image.jpg">
+
+<title>威莱洗护矩阵 - 专业细分 协同守护 | Welly Care Matrix</title>
+
+<!-- Preconnect for performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-:root {
-  --walch-primary: #003A8C;
-  --walch-bg: #EAF4FF;
-  --na-primary: #111E0F;
-  --na-accent: #C4A04A;
-  --lamama-primary: #D4607A;
-  --lamama-bg: #FFF8F5;
-  --jinghua-primary: #0A0602;
-  --jinghua-accent: #C4891A;
-  --fangyoumei-primary: #7B5EA7;
-  --fangyoumei-bg: #EDE8F5;
-}
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-html {
-  scroll-behavior: smooth;
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "威莱集团",
+  "alternateName": "Welly Care Group",
+  "url": "https://wellycarematrix.com",
+  "logo": "https://wellycarematrix.com/assets/logo.png",
+  "description": "威莱洗护矩阵 - 五大专业品牌覆盖全家庭洗护需求",
+  "brand": [
+    {
+      "@type": "Brand",
+      "name": "威露士",
+      "alternateName": "Walch",
+      "description": "大众市场领导者 - 专业杀菌消毒洗护品牌"
+    },
+    {
+      "@type": "Brand",
+      "name": "Na",
+      "alternateName": "奈十八本",
+      "description": "高端香氛洗护 - 融合国际香氛艺术与洗护科技"
+    },
+    {
+      "@type": "Brand",
+      "name": "Lamama",
+      "description": "母婴专业洗护 - 专注0-6岁婴幼儿及孕产妇专用洗护"
+    },
+    {
+      "@type": "Brand",
+      "name": "菁华",
+      "alternateName": "Jinghua",
+      "description": "天然植物洗护 - 主打天然植萃和环保理念"
+    },
+    {
+      "@type": "Brand",
+      "name": "纺优美",
+      "alternateName": "Fangyoumei",
+      "description": "专业衣物护理 - 针对高端面料和特殊材质的专业护理"
+    }
+  ]
 }
+</script>
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="script.js" defer></script>
 
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  color: #1a1a1a;
-  overflow-x: hidden;
-}
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  padding: 20px 0;
-}
-
-.nav-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #1a1a1a;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #666;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #1a1a1a;
-}
-
-.hero {
-  height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-  z-index: 0;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: white;
-  max-width: 1000px;
-  padding: 0 60px;
-}
-
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 96px;
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 30px;
-  letter-spacing: -2px;
-}
-
-.hero-subtitle {
-  font-size: 24px;
-  font-weight: 300;
-  opacity: 0.9;
-  margin-bottom: 60px;
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 60px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.section {
-  min-height: 100vh;
-  padding: 160px 60px;
-  position: relative;
-}
-
-.section-container {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.section-header {
-  margin-bottom: 80px;
-}
-
-.section-eyebrow {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 20px;
-  opacity: 0.6;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 72px;
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 30px;
-}
-
-.section-description {
-  font-size: 20px;
-  line-height: 1.8;
-  max-width: 700px;
-  opacity: 0.8;
-}
-
-.brand-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
-  margin-bottom: 120px;
-}
-
-.brand-card {
-  background: white;
-  border-radius: 16px;
-  padding: 40px 30px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.brand-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-}
-
-.brand-card-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 25px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  font-weight: 700;
-  color: white;
-}
-
-.brand-card-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.brand-card-tagline {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.brand-card-position {
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  opacity: 0.5;
-}
-
-.brand-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 120px;
-}
-
-.brand-image {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-.brand-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.brand-year {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: 0.5;
-  margin-bottom: 30px;
-}
-
-.brand-description {
-  font-size: 18px;
-  line-height: 1.8;
-  margin-bottom: 40px;
-  opacity: 0.8;
-}
-
-.brand-features {
-  list-style: none;
-  margin-bottom: 40px;
-}
-
-.brand-features li {
-  padding: 15px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  font-size: 16px;
-}
-
-.brand-features li:last-child {
-  border-bottom: none;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 80px;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  border: 1px solid rgba(0,0,0,0.05);
-}
-
-.product-name {
-  font-weight: 600;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.product-spec {
-  font-size: 14px;
-  color: #666;
-}
-
-.footer {
-  background: #0a0a0a;
-  color: white;
-  padding: 100px 60px 60px;
-}
-
-.footer-container {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.footer-brands {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 80px;
-  padding-bottom: 80px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.footer-brand {
-  text-align: center;
-}
-
-.footer-brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.footer-brand-position {
-  font-size: 12px;
-  opacity: 0.5;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.footer-bottom {
-  text-align: center;
-  opacity: 0.5;
-  font-size: 14px;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s, transform 0.8s;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#overview {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  color: white;
-}
-
-#walch {
-  background: var(--walch-bg);
-  color: var(--walch-primary);
-}
-
-#na {
-  background: var(--na-primary);
-  color: white;
-}
-
-#lamama {
-  background: var(--lamama-bg);
-  color: #2a2a2a;
-}
-
-#jinghua {
-  background: var(--jinghua-primary);
-  color: white;
-}
-
-#fangyoumei {
-  background: var(--fangyoumei-bg);
-  color: var(--fangyoumei-primary);
-}
-</style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-container">
-    <a href="#" class="nav-logo">衣物洗护矩阵</a>
-    <ul class="nav-links">
-      <li><a href="#walch">威露士</a></li>
-      <li><a href="#na">奈十八本</a></li>
-      <li><a href="#lamama">Lamama</a></li>
-      <li><a href="#jinghua">菁华</a></li>
-      <li><a href="#fangyoumei">纺优美</a></li>
-    </ul>
-  </div>
+<!-- Skip to content for accessibility -->
+<a href="#main-content" class="skip-link" aria-label="跳转到主要内容">跳转到主要内容</a>
+
+<!-- Fixed Top Navigation -->
+<header class="header" role="banner">
+  <nav class="nav" aria-label="主导航" role="navigation">
+    <div class="nav-container">
+      <!-- Logo and Group Identity -->
+      <div class="nav-brand">
+        <a href="#hero" class="nav-logo" aria-label="威莱洗护矩阵首页">
+          <span class="logo-text-cn">威莱集团</span>
+          <span class="logo-text-en">Welly Care Matrix</span>
+        </a>
+      </div>
+
+      <!-- Brand Quick Switch Navigation -->
+      <ul class="nav-brands" role="menubar">
+        <li role="none">
+          <a href="#brand-walch"
+             class="nav-brand-link"
+             data-brand="walch"
+             data-brand-color="#00A651"
+             role="menuitem"
+             aria-label="威露士品牌">
+            <span class="brand-name-cn">威露士</span>
+            <span class="brand-name-en">Walch</span>
+            <span class="brand-tagline">专业杀菌</span>
+          </a>
+        </li>
+        <li role="none">
+          <a href="#brand-na"
+             class="nav-brand-link"
+             data-brand="na"
+             data-brand-color="#2C2C2C"
+             role="menuitem"
+             aria-label="Na品牌">
+            <span class="brand-name-cn">Na</span>
+            <span class="brand-name-en">奈十八本</span>
+            <span class="brand-tagline">高端香氛</span>
+          </a>
+        </li>
+        <li role="none">
+          <a href="#brand-lamama"
+             class="nav-brand-link"
+             data-brand="lamama"
+             data-brand-color="#FFB6C1"
+             role="menuitem"
+             aria-label="Lamama品牌">
+            <span class="brand-name-cn">Lamama</span>
+            <span class="brand-name-en">Lamama</span>
+            <span class="brand-tagline">母婴专护</span>
+          </a>
+        </li>
+        <li role="none">
+          <a href="#brand-jinghua"
+             class="nav-brand-link"
+             data-brand="jinghua"
+             data-brand-color="#6B8E23"
+             role="menuitem"
+             aria-label="菁华品牌">
+            <span class="brand-name-cn">菁华</span>
+            <span class="brand-name-en">Jinghua</span>
+            <span class="brand-tagline">天然植萃</span>
+          </a>
+        </li>
+        <li role="none">
+          <a href="#brand-fangyoumei"
+             class="nav-brand-link"
+             data-brand="fangyoumei"
+             data-brand-color="#4A5568"
+             role="menuitem"
+             aria-label="纺优美品牌">
+            <span class="brand-name-cn">纺优美</span>
+            <span class="brand-name-en">Fangyoumei</span>
+            <span class="brand-tagline">专业护理</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Right Side Actions -->
+      <div class="nav-actions">
+        <button class="btn-smart-matcher"
+                data-action="open-matcher"
+                aria-label="打开智能品牌推荐">
+          <span class="icon-sparkle" aria-hidden="true">✨</span>
+          <span>智能推荐</span>
+        </button>
+        <button class="btn-language"
+                data-action="toggle-language"
+                aria-label="切换语言">
+          <span>中文</span>
+        </button>
+        <button class="btn-mobile-menu"
+                data-action="toggle-mobile-menu"
+                aria-label="打开移动菜单"
+                aria-expanded="false">
+          <span class="hamburger-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Side Dot Navigation -->
+<nav class="side-nav" aria-label="品牌快速导航" role="navigation">
+  <ul class="side-nav-list">
+    <li>
+      <a href="#brand-walch"
+         class="side-nav-dot"
+         data-brand="walch"
+         aria-label="跳转到威露士品牌">
+         <span class="dot-label">W</span>
+      </a>
+    </li>
+    <li>
+      <a href="#brand-na"
+         class="side-nav-dot"
+         data-brand="na"
+         aria-label="跳转到Na品牌">
+         <span class="dot-label">N</span>
+      </a>
+    </li>
+    <li>
+      <a href="#brand-lamama"
+         class="side-nav-dot"
+         data-brand="lamama"
+         aria-label="跳转到Lamama品牌">
+         <span class="dot-label">L</span>
+      </a>
+    </li>
+    <li>
+      <a href="#brand-jinghua"
+         class="side-nav-dot"
+         data-brand="jinghua"
+         aria-label="跳转到菁华品牌">
+         <span class="dot-label">J</span>
+      </a>
+    </li>
+    <li>
+      <a href="#brand-fangyoumei"
+         class="side-nav-dot"
+         data-brand="fangyoumei"
+         aria-label="跳转到纺优美品牌">
+         <span class="dot-label">F</span>
+      </a>
+    </li>
+  </ul>
 </nav>
 
-<section class="hero">
-  <img src="assets/matrix-hero.png" alt="品牌矩阵" class="hero-bg">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">衣物洗护<br>完整矩阵</h1>
-    <p class="hero-subtitle">从大众杀菌到高端香氛，五大品牌一体覆盖全场景衣物护理需求</p>
-  </div>
-  <div class="hero-scroll">滚动探索</div>
-</section>
+<main id="main-content" role="main">
 
-<section id="overview" class="section">
-  <div class="section-container">
-    <div class="section-header fade-in">
-      <p class="section-eyebrow">品牌矩阵</p>
-      <h2 class="section-title">五大品牌<br>全场景覆盖</h2>
-      <p class="section-description">从基础除菌到顶奢香氛，从婴幼儿级安全到专业织物护理，满足不同家庭的差异化洗护需求。</p>
+  <!-- Hero Section - Brand Matrix Visualization -->
+  <section id="hero"
+           class="hero-section"
+           data-section="hero"
+           aria-labelledby="hero-title">
+    <div class="hero-background">
+      <div class="matrix-grid" aria-hidden="true"></div>
+      <div class="matrix-particles" aria-hidden="true"></div>
     </div>
-    
-    <div class="brand-grid fade-in">
-      <div class="brand-card" onclick="location.href='#walch'">
-        <div class="brand-card-icon" style="background: #003A8C;">W</div>
-        <h3 class="brand-card-name">威露士</h3>
-        <p class="brand-card-tagline">全球除菌专家</p>
-        <p class="brand-card-position">Mass Market · Antibacterial</p>
-      </div>
-      
-      <div class="brand-card" onclick="location.href='#na'">
-        <div class="brand-card-icon" style="background: linear-gradient(135deg, #111E0F, #C4A04A);">Na</div>
-        <h3 class="brand-card-name">奈十八本</h3>
-        <p class="brand-card-tagline">十八种本草精华</p>
-        <p class="brand-card-position">Premium · Botanical</p>
-      </div>
-      
-      <div class="brand-card" onclick="location.href='#lamama'">
-        <div class="brand-card-icon" style="background: #D4607A;">L</div>
-        <h3 class="brand-card-name">Lamama</h3>
-        <p class="brand-card-tagline">妈妈专属安心之选</p>
-        <p class="brand-card-position">Baby Safe · Gentle</p>
-      </div>
-      
-      <div class="brand-card" onclick="location.href='#jinghua'">
-        <div class="brand-card-icon" style="background: linear-gradient(135deg, #0A0602, #C4891A);">菁</div>
-        <h3 class="brand-card-name">菁华</h3>
-        <p class="brand-card-tagline">顶奢香氛体验</p>
-        <p class="brand-card-position">Luxury · Fragrance</p>
-      </div>
-      
-      <div class="brand-card" onclick="location.href='#fangyoumei'">
-        <div class="brand-card-icon" style="background: #7B5EA7;">纺</div>
-        <h3 class="brand-card-name">纺优美</h3>
-        <p class="brand-card-tagline">专业织物护理</p>
-        <p class="brand-card-position">Fabric Care · Professional</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="walch" class="section">
-  <div class="section-container">
-    <div class="brand-section fade-in">
-      <img src="assets/walch-hero.png" alt="威露士" class="brand-image">
-      <div class="brand-content">
-        <p class="brand-year">始于 1896</p>
-        <h3>威露士<br>Walch</h3>
-        <p class="brand-description">超过百年历史的全球专业除菌品牌，源自英国的消毒洗护专家。威露士凭借专业的抗菌技术，为全球70+国家提供值得信赖的衣物除菌保护。</p>
-        
-        <ul class="brand-features">
-          <li>✓ 99.9%有效除菌率，经权威实验室认证</li>
-          <li>✓ 皮肤科测试安全，温和不刺激</li>
-          <li>✓ 全球70+国家销售，千万家庭信赖</li>
-          <li>✓ 专业抗菌科技，持久保护</li>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-eyebrow" data-aos="fade-up">Welly Care Matrix</p>
+        <h1 id="hero-title" class="hero-title" data-aos="fade-up" data-aos-delay="100">
+          <span class="title-line">威莱洗护矩阵</span>
+          <span class="title-line">专业细分 协同守护</span>
+        </h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+          五大专业品牌 · 覆盖从¥15到¥299的全方位洗护生态系统<br>
+          让每个家庭找到适合自己的洗护方式
+        </p>
+        <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+          <button class="btn btn-primary" data-action="scroll-to-matrix">
+            探索品牌矩阵
+          </button>
+          <button class="btn btn-secondary" data-action="open-matcher">
+            智能推荐适合我的品牌
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Brand Matrix Constellation -->
+      <div class="brand-constellation"
+           role="img"
+           aria-label="品牌矩阵可视化图谱"
+           data-aos="zoom-in"
+           data-aos-delay="400">
+
+        <!-- Central Foundation Brand - Walch -->
+        <div class="constellation-brand constellation-center"
+             data-brand="walch"
+             data-price="15-45"
+             data-position="mass-market"
+             style="--brand-size: 2.5;">
+          <div class="brand-bubble" tabindex="0" role="button" aria-label="威露士 - 大众市场领导者">
+            <div class="bubble-icon">W</div>
+            <div class="bubble-info">
+              <span class="bubble-name">威露士</span>
+              <span class="bubble-position">¥15-45</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Satellite Brands -->
+        <div class="constellation-brand constellation-top-right"
+             data-brand="na"
+             data-price="89-299"
+             data-position="premium-fragrance"
+             style="--brand-size: 1.8;">
+          <div class="brand-bubble" tabindex="0" role="button" aria-label="Na - 高端香氛洗护">
+            <div class="bubble-icon">Na</div>
+            <div class="bubble-info">
+              <span class="bubble-name">Na</span>
+              <span class="bubble-position">¥89-299</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="constellation-brand constellation-top-left"
+             data-brand="lamama"
+             data-price="38-88"
+             data-position="baby-care"
+             style="--brand-size: 1.6;">
+          <div class="brand-bubble" tabindex="0" role="button" aria-label="Lamama - 母婴专业洗护">
+            <div class="bubble-icon">L</div>
+            <div class="bubble-info">
+              <span class="bubble-name">Lamama</span>
+              <span class="bubble-position">¥38-88</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="constellation-brand constellation-bottom-left"
+             data-brand="jinghua"
+             data-price="28-68"
+             data-position="natural-plant"
+             style="--brand-size: 1.5;">
+          <div class="brand-bubble" tabindex="0" role="button" aria-label="菁华 - 天然植物洗护">
+            <div class="bubble-icon">菁</div>
+            <div class="bubble-info">
+              <span class="bubble-name">菁华</span>
+              <span class="bubble-position">¥28-68</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="constellation-brand constellation-bottom-right"
+             data-brand="fangyoumei"
+             data-price="45-128"
+             data-position="professional-care"
+             style="--brand-size: 1.7;">
+          <div class="brand-bubble" tabindex="0" role="button" aria-label="纺优美 - 专业衣物护理">
+            <div class="bubble-icon">纺</div>
+            <div class="bubble-info">
+              <span class="bubble-name">纺优美</span>
+              <span class="bubble-position">¥45-128</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Connection Lines (SVG) -->
+        <svg class="constellation-connections" aria-hidden="true">
+          <line x1="50%" y1="50%" x2="75%" y2="25%" class="connection-line" />
+          <line x1="50%" y1="50%" x2="25%" y2="25%" class="connection-line" />
+          <line x1="50%" y1="50%" x2="25%" y2="75%" class="connection-line" />
+          <line x1="50%" y1="50%" x2="75%" y2="75%" class="connection-line" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-text">向下滚动探索</span>
+      <span class="scroll-arrow"></span>
+    </div>
+  </section>
+
+  <!-- Brand Detail Section: Walch -->
+  <section id="brand-walch"
+           class="brand-detail-section"
+           data-brand="walch"
+           data-brand-color="#00A651"
+           aria-labelledby="walch-title">
+    <div class="brand-detail-container">
+      <!-- Brand Hero -->
+      <div class="brand-hero" data-aos="fade-up">
+        <div class="brand-hero-content">
+          <p class="brand-category">大众市场领导者 · ¥15-45</p>
+          <h2 id="walch-title" class="brand-title">
+            <span class="brand-title-cn">威露士</span>
+            <span class="brand-title-en">Walch</span>
+          </h2>
+          <p class="brand-positioning">
+            专业杀菌消毒洗护品牌，注重健康保护和家庭卫生，是威莱矩阵中的基石品牌和市场份额最大的产品线
+          </p>
+        </div>
+        <div class="brand-hero-visual">
+          <img src="/assets/brands/walch-hero.jpg"
+               alt="威露士品牌产品展示"
+               class="brand-hero-image"
+               loading="lazy">
+        </div>
+      </div>
+
+      <!-- Brand Story -->
+      <div class="brand-story" data-aos="fade-up">
+        <h3 class="section-subtitle">品牌故事</h3>
+        <p class="brand-story-text">
+          威露士作为专业杀菌洗护领域的领导者，以科学验证的99.9%除菌率赢得千万家庭的信赖。
+          专注于健康防护理念，为注重卫生安全的家庭用户提供从衣物、餐具到地板的全场景杀菌解决方案。
+          大容量家庭装设计，实现专业级防护与经济实惠的完美平衡。
+        </p>
+      </div>
+
+      <!-- Target Audience -->
+      <div class="brand-audience" data-aos="fade-up">
+        <h3 class="section-subtitle">目标人群</h3>
+        <div class="audience-tags">
+          <span class="audience-tag">有儿童的年轻家庭</span>
+          <span class="audience-tag">关注杀菌消毒的中年消费者</span>
+          <span class="audience-tag">一二三线城市主流市场</span>
+          <span class="audience-tag">注重健康卫生的广大家庭</span>
+        </div>
+      </div>
+
+      <!-- Key Features -->
+      <div class="brand-features" data-aos="fade-up">
+        <h3 class="section-subtitle">核心优势</h3>
+        <ul class="features-list">
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🔬</span>
+            <div class="feature-content">
+              <h4 class="feature-title">专业杀菌技术</h4>
+              <p class="feature-desc">99.9%除菌率，经权威实验室认证</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🛡️</span>
+            <div class="feature-content">
+              <h4 class="feature-title">健康防护理念</h4>
+              <p class="feature-desc">预防交叉感染，守护家庭健康</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🏠</span>
+            <div class="feature-content">
+              <h4 class="feature-title">全场景覆盖</h4>
+              <p class="feature-desc">衣物、餐具、地板多品类专业解决方案</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">💰</span>
+            <div class="feature-content">
+              <h4 class="feature-title">性价比高</h4>
+              <p class="feature-desc">大容量家庭装，经济实惠</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">⭐</span>
+            <div class="feature-content">
+              <h4 class="feature-title">品牌信任度强</h4>
+              <p class="feature-desc">市场领导地位，千万家庭选择</p>
+            </div>
+          </li>
         </ul>
-        
+      </div>
+
+      <!-- Product Showcase -->
+      <div class="brand-products" data-aos="fade-up">
+        <h3 class="section-subtitle">核心产品系列</h3>
         <div class="products-grid">
-          <div class="product-card">
-            <div class="product-name">威露士除菌洗衣液</div>
-            <div class="product-spec">深层除菌 · 1kg</div>
+          <article class="product-card" data-product="walch-1">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/walch-laundry-detergent.jpg"
+                   alt="威露士除菌洗衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">威露士除菌洗衣液</h4>
+              <p class="product-spec">深层除菌 · 多种规格</p>
+              <p class="product-price">¥15-45</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="walch-2">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/walch-disinfectant.jpg"
+                   alt="威露士衣物消毒液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">威露士衣物消毒液</h4>
+              <p class="product-spec">专业消毒 · 安全无刺激</p>
+              <p class="product-price">¥18-38</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="walch-3">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/walch-underwear.jpg"
+                   alt="威露士内衣专用洗衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">威露士内衣专用</h4>
+              <p class="product-spec">贴身衣物专护 · 温和除菌</p>
+              <p class="product-price">¥22-42</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Other Brands Recommendation -->
+      <div class="brand-recommendations" data-aos="fade-up">
+        <h3 class="section-subtitle">威莱矩阵其他选择</h3>
+        <p class="recommendations-intro">基于您对威露士的关注，我们推荐以下互补品牌：</p>
+        <div class="recommendations-grid">
+          <a href="#brand-lamama" class="recommendation-card" data-brand="lamama">
+            <span class="recommendation-icon">L</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">Lamama</h4>
+              <p class="recommendation-reason">家庭用户延伸 - 宝宝专属安全守护</p>
+            </div>
+          </a>
+          <a href="#brand-jinghua" class="recommendation-card" data-brand="jinghua">
+            <span class="recommendation-icon">菁</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">菁华</h4>
+              <p class="recommendation-reason">天然安全升级 - 植物配方更温和</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Detail Section: Na -->
+  <section id="brand-na"
+           class="brand-detail-section"
+           data-brand="na"
+           data-brand-color="#2C2C2C"
+           aria-labelledby="na-title">
+    <div class="brand-detail-container">
+      <div class="brand-hero" data-aos="fade-up">
+        <div class="brand-hero-content">
+          <p class="brand-category">高端香氛洗护 · ¥89-299</p>
+          <h2 id="na-title" class="brand-title">
+            <span class="brand-title-cn">Na</span>
+            <span class="brand-title-en">奈十八本</span>
+          </h2>
+          <p class="brand-positioning">
+            融合国际香氛艺术与洗护科技，为追求生活品质的消费者提供感官享受和情感价值
+          </p>
+        </div>
+        <div class="brand-hero-visual">
+          <img src="/assets/brands/na-hero.jpg"
+               alt="Na品牌产品展示"
+               class="brand-hero-image"
+               loading="lazy">
+        </div>
+      </div>
+
+      <div class="brand-story" data-aos="fade-up">
+        <h3 class="section-subtitle">品牌故事</h3>
+        <p class="brand-story-text">
+          Na（奈十八本）定位轻奢市场，将国际调香师的艺术配方与先进洗护科技完美融合。
+          18种经典香型满足个性化需求，72小时持久留香技术带来奢华体验。
+          高颜值包装设计适合社交分享，为都市新中产打造具有仪式感的生活美学。
+        </p>
+      </div>
+
+      <div class="brand-audience" data-aos="fade-up">
+        <h3 class="section-subtitle">目标人群</h3>
+        <div class="audience-tags">
+          <span class="audience-tag">25-40岁都市新中产</span>
+          <span class="audience-tag">注重生活品质的女性群体</span>
+          <span class="audience-tag">一线及新一线城市高收入人群</span>
+          <span class="audience-tag">追求个性化和仪式感</span>
+        </div>
+      </div>
+
+      <div class="brand-features" data-aos="fade-up">
+        <h3 class="section-subtitle">核心优势</h3>
+        <ul class="features-list">
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🌸</span>
+            <div class="feature-content">
+              <h4 class="feature-title">国际调香师配方</h4>
+              <p class="feature-desc">多层次香氛体验，媲美高端香水</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">⏱️</span>
+            <div class="feature-content">
+              <h4 class="feature-title">持久留香技术</h4>
+              <p class="feature-desc">72小时持香，衣物自带香氛光环</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🎨</span>
+            <div class="feature-content">
+              <h4 class="feature-title">高颜值包装设计</h4>
+              <p class="feature-desc">精致美学，适合社交分享</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🍃</span>
+            <div class="feature-content">
+              <h4 class="feature-title">植物精油成分</h4>
+              <p class="feature-desc">温和护理，敏感肌友好</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">💫</span>
+            <div class="feature-content">
+              <h4 class="feature-title">18种经典香型</h4>
+              <p class="feature-desc">满足个性化需求，打造专属气质</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brand-products" data-aos="fade-up">
+        <h3 class="section-subtitle">核心产品系列</h3>
+        <div class="products-grid">
+          <article class="product-card" data-product="na-1">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/na-fragrance-detergent.jpg"
+                   alt="Na香氛洗衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Na香氛洗衣液</h4>
+              <p class="product-spec">18种香型 · 轻奢体验</p>
+              <p class="product-price">¥89-199</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="na-2">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/na-fabric-softener.jpg"
+                   alt="Na香氛护衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Na香氛护衣液</h4>
+              <p class="product-spec">持久留香 · 柔顺呵护</p>
+              <p class="product-price">¥98-188</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="na-3">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/na-laundry-beads.jpg"
+                   alt="Na洗衣凝珠"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Na洗衣凝珠</h4>
+              <p class="product-spec">便捷浓缩 · 奢华香氛</p>
+              <p class="product-price">¥128-299</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="brand-recommendations" data-aos="fade-up">
+        <h3 class="section-subtitle">威莱矩阵其他选择</h3>
+        <p class="recommendations-intro">您对高品质的追求，我们还推荐：</p>
+        <div class="recommendations-grid">
+          <a href="#brand-fangyoumei" class="recommendation-card" data-brand="fangyoumei">
+            <span class="recommendation-icon">纺</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">纺优美</h4>
+              <p class="recommendation-reason">品质关联 - 专业护理贵重衣物</p>
+            </div>
+          </a>
+          <a href="#brand-jinghua" class="recommendation-card" data-brand="jinghua">
+            <span class="recommendation-icon">菁</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">菁华</h4>
+              <p class="recommendation-reason">天然植萃 - 环保与品质兼得</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Detail Section: Lamama -->
+  <section id="brand-lamama"
+           class="brand-detail-section"
+           data-brand="lamama"
+           data-brand-color="#FFB6C1"
+           aria-labelledby="lamama-title">
+    <div class="brand-detail-container">
+      <div class="brand-hero" data-aos="fade-up">
+        <div class="brand-hero-content">
+          <p class="brand-category">母婴专业洗护 · ¥38-88</p>
+          <h2 id="lamama-title" class="brand-title">
+            <span class="brand-title-cn">Lamama</span>
+            <span class="brand-title-en">Lamama</span>
+          </h2>
+          <p class="brand-positioning">
+            专注0-6岁婴幼儿及孕产妇专用洗护，以安全温和为核心，建立母婴洗护专业权威形象
+          </p>
+        </div>
+        <div class="brand-hero-visual">
+          <img src="/assets/brands/lamama-hero.jpg"
+               alt="Lamama品牌产品展示"
+               class="brand-hero-image"
+               loading="lazy">
+        </div>
+      </div>
+
+      <div class="brand-story" data-aos="fade-up">
+        <h3 class="section-subtitle">品牌故事</h3>
+        <p class="brand-story-text">
+          Lamama专为新手妈妈设计，采用A类婴幼儿标准的0添加配方，通过皮肤科测试和低敏认证。
+          使用天然APG椰油基洗净成分，无荧光剂、无磷、无香精，让每一件宝宝衣物都安全可靠。
+          获得儿科专家推荐，为高学历妈妈群体提供科学育儿的专业背书。
+        </p>
+      </div>
+
+      <div class="brand-audience" data-aos="fade-up">
+        <h3 class="section-subtitle">目标人群</h3>
+        <div class="audience-tags">
+          <span class="audience-tag">新生儿及学龄前儿童母亲</span>
+          <span class="audience-tag">25-35岁高学历新手妈妈</span>
+          <span class="audience-tag">注重科学育儿和产品安全</span>
+          <span class="audience-tag">愿为宝宝健康支付溢价</span>
+        </div>
+      </div>
+
+      <div class="brand-features" data-aos="fade-up">
+        <h3 class="section-subtitle">核心优势</h3>
+        <ul class="features-list">
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">👶</span>
+            <div class="feature-content">
+              <h4 class="feature-title">0添加配方</h4>
+              <p class="feature-desc">无荧光剂、无磷、无香精，宝宝安心</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">✅</span>
+            <div class="feature-content">
+              <h4 class="feature-title">低敏认证</h4>
+              <p class="feature-desc">通过皮肤科测试，新生儿可用</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🏅</span>
+            <div class="feature-content">
+              <h4 class="feature-title">A类婴幼儿标准</h4>
+              <p class="feature-desc">可接触婴儿皮肤，最高安全等级</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🥥</span>
+            <div class="feature-content">
+              <h4 class="feature-title">天然洗净成分</h4>
+              <p class="feature-desc">APG椰油基，温和易漂洗</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">👨‍⚕️</span>
+            <div class="feature-content">
+              <h4 class="feature-title">儿科专家推荐</h4>
+              <p class="feature-desc">专业背书，妈妈放心</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brand-products" data-aos="fade-up">
+        <h3 class="section-subtitle">核心产品系列</h3>
+        <div class="products-grid">
+          <article class="product-card" data-product="lamama-1">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/lamama-baby-detergent.jpg"
+                   alt="Lamama婴儿洗衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Lamama婴儿洗衣液</h4>
+              <p class="product-spec">0添加 · 新生儿专用</p>
+              <p class="product-price">¥38-68</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="lamama-2">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/lamama-softener.jpg"
+                   alt="Lamama宝宝护衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Lamama宝宝护衣液</h4>
+              <p class="product-spec">柔软抗静电 · 低敏温和</p>
+              <p class="product-price">¥42-72</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="lamama-3">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/lamama-soap.jpg"
+                   alt="Lamama儿童洗衣皂"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">Lamama儿童洗衣皂</h4>
+              <p class="product-spec">手洗专用 · 植物皂基</p>
+              <p class="product-price">¥28-48</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="brand-recommendations" data-aos="fade-up">
+        <h3 class="section-subtitle">威莱矩阵其他选择</h3>
+        <p class="recommendations-intro">全家洗护，我们还推荐：</p>
+        <div class="recommendations-grid">
+          <a href="#brand-walch" class="recommendation-card" data-brand="walch">
+            <span class="recommendation-icon">W</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">威露士</h4>
+              <p class="recommendation-reason">家庭基础 - 全家衣物日常除菌</p>
+            </div>
+          </a>
+          <a href="#brand-jinghua" class="recommendation-card" data-brand="jinghua">
+            <span class="recommendation-icon">菁</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">菁华</h4>
+              <p class="recommendation-reason">天然安全 - 植物配方温和守护</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Detail Section: Jinghua -->
+  <section id="brand-jinghua"
+           class="brand-detail-section"
+           data-brand="jinghua"
+           data-brand-color="#6B8E23"
+           aria-labelledby="jinghua-title">
+    <div class="brand-detail-container">
+      <div class="brand-hero" data-aos="fade-up">
+        <div class="brand-hero-content">
+          <p class="brand-category">天然植物洗护 · ¥28-68</p>
+          <h2 id="jinghua-title" class="brand-title">
+            <span class="brand-title-cn">菁华</span>
+            <span class="brand-title-en">Jinghua</span>
+          </h2>
+          <p class="brand-positioning">
+            主打天然植萃和环保理念，面向追求绿色生活方式的环保意识消费者，强调自然与科技的平衡
+          </p>
+        </div>
+        <div class="brand-hero-visual">
+          <img src="/assets/brands/jinghua-hero.jpg"
+               alt="菁华品牌产品展示"
+               class="brand-hero-image"
+               loading="lazy">
+        </div>
+      </div>
+
+      <div class="brand-story" data-aos="fade-up">
+        <h3 class="section-subtitle">品牌故事</h3>
+        <p class="brand-story-text">
+          菁华融合传统植物智慧与现代环保理念，采用90%以上植物成分的生物可降解配方。
+          草本护理复方温和不伤衣物，易漂洗无化学残留。FSC认证包装体现可持续发展承诺，
+          为追求健康环保的中产家庭提供回归自然本质的洗护选择。
+        </p>
+      </div>
+
+      <div class="brand-audience" data-aos="fade-up">
+        <h3 class="section-subtitle">目标人群</h3>
+        <div class="audience-tags">
+          <span class="audience-tag">28-45岁注重健康环保的中产家庭</span>
+          <span class="audience-tag">关注成分安全的理性消费者</span>
+          <span class="audience-tag">环境友好意识强</span>
+          <span class="audience-tag">二线城市及以上品质生活追求者</span>
+        </div>
+      </div>
+
+      <div class="brand-features" data-aos="fade-up">
+        <h3 class="section-subtitle">核心优势</h3>
+        <ul class="features-list">
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🌿</span>
+            <div class="feature-content">
+              <h4 class="feature-title">天然植物提取</h4>
+              <p class="feature-desc">90%以上植物成分，自然纯净</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">♻️</span>
+            <div class="feature-content">
+              <h4 class="feature-title">生物可降解配方</h4>
+              <p class="feature-desc">环境友好，保护地球家园</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🌾</span>
+            <div class="feature-content">
+              <h4 class="feature-title">草本护理复方</h4>
+              <p class="feature-desc">温和不伤衣物，延长使用寿命</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">💧</span>
+            <div class="feature-content">
+              <h4 class="feature-title">无化学残留</h4>
+              <p class="feature-desc">易漂洗，安心贴身穿着</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">📦</span>
+            <div class="feature-content">
+              <h4 class="feature-title">FSC认证包装</h4>
+              <p class="feature-desc">可持续材料，践行环保承诺</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brand-products" data-aos="fade-up">
+        <h3 class="section-subtitle">核心产品系列</h3>
+        <div class="products-grid">
+          <article class="product-card" data-product="jinghua-1">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/jinghua-plant-detergent.jpg"
+                   alt="菁华植物洗衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">菁华植物洗衣液</h4>
+              <p class="product-spec">90%植萃 · 生态环保</p>
+              <p class="product-price">¥28-58</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="jinghua-2">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/jinghua-herbal-softener.jpg"
+                   alt="菁华草本护衣液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">菁华草本护衣液</h4>
+              <p class="product-spec">天然柔顺 · 温和护理</p>
+              <p class="product-price">¥32-62</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="jinghua-3">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/jinghua-eco-beads.jpg"
+                   alt="菁华环保洗衣凝珠"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">菁华环保洗衣凝珠</h4>
+              <p class="product-spec">浓缩高效 · 可降解</p>
+              <p class="product-price">¥48-68</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="brand-recommendations" data-aos="fade-up">
+        <h3 class="section-subtitle">威莱矩阵其他选择</h3>
+        <p class="recommendations-intro">关注天然安全，您可能也需要：</p>
+        <div class="recommendations-grid">
+          <a href="#brand-lamama" class="recommendation-card" data-brand="lamama">
+            <span class="recommendation-icon">L</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">Lamama</h4>
+              <p class="recommendation-reason">天然安全关联 - 宝宝专用更安心</p>
+            </div>
+          </a>
+          <a href="#brand-walch" class="recommendation-card" data-brand="walch">
+            <span class="recommendation-icon">W</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">威露士</h4>
+              <p class="recommendation-reason">日常基础 - 专业杀菌健康守护</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Detail Section: Fangyoumei -->
+  <section id="brand-fangyoumei"
+           class="brand-detail-section"
+           data-brand="fangyoumei"
+           data-brand-color="#4A5568"
+           aria-labelledby="fangyoumei-title">
+    <div class="brand-detail-container">
+      <div class="brand-hero" data-aos="fade-up">
+        <div class="brand-hero-content">
+          <p class="brand-category">专业衣物护理 · ¥45-128</p>
+          <h2 id="fangyoumei-title" class="brand-title">
+            <span class="brand-title-cn">纺优美</span>
+            <span class="brand-title-en">Fangyoumei</span>
+          </h2>
+          <p class="brand-positioning">
+            针对高端面料和特殊材质的专业护理品牌，为重视衣物保养的精致人群提供专业级护理方案
+          </p>
+        </div>
+        <div class="brand-hero-visual">
+          <img src="/assets/brands/fangyoumei-hero.jpg"
+               alt="纺优美品牌产品展示"
+               class="brand-hero-image"
+               loading="lazy">
+        </div>
+      </div>
+
+      <div class="brand-story" data-aos="fade-up">
+        <h3 class="section-subtitle">品牌故事</h3>
+        <p class="brand-story-text">
+          纺优美专注织物护理科技，为羊绒、丝绸、羽绒等高端面料提供洗衣店级的家用专业方案。
+          修复纤维技术延长衣物寿命，防皱抗静电保持衣物形态，色彩锁定技术防止褪色。
+          为职场精英和拥有贵重衣物的中产阶层提供精准专业的衣物保养解决方案。
+        </p>
+      </div>
+
+      <div class="brand-audience" data-aos="fade-up">
+        <h3 class="section-subtitle">目标人群</h3>
+        <div class="audience-tags">
+          <span class="audience-tag">30-50岁拥有高端衣物的品质消费者</span>
+          <span class="audience-tag">注重衣物保养的职场精英</span>
+          <span class="audience-tag">中产阶层品质生活追求者</span>
+          <span class="audience-tag">拥有羊绒丝绸羽绒等贵重衣物</span>
+        </div>
+      </div>
+
+      <div class="brand-features" data-aos="fade-up">
+        <h3 class="section-subtitle">核心优势</h3>
+        <ul class="features-list">
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🧵</span>
+            <div class="feature-content">
+              <h4 class="feature-title">专业面料护理技术</h4>
+              <p class="feature-desc">针对羊绒/丝绸/羽绒等高端材质</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🔧</span>
+            <div class="feature-content">
+              <h4 class="feature-title">修复纤维技术</h4>
+              <p class="feature-desc">延长衣物寿命，保持如新状态</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">✨</span>
+            <div class="feature-content">
+              <h4 class="feature-title">防皱抗静电</h4>
+              <p class="feature-desc">保持衣物形态，舒适穿着</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🎨</span>
+            <div class="feature-content">
+              <h4 class="feature-title">色彩锁定技术</h4>
+              <p class="feature-desc">防止褪色，保持亮丽色泽</p>
+            </div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon" aria-hidden="true">🏆</span>
+            <div class="feature-content">
+              <h4 class="feature-title">洗衣店级护理</h4>
+              <p class="feature-desc">家用专业方案，品质保证</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brand-products" data-aos="fade-up">
+        <h3 class="section-subtitle">核心产品系列</h3>
+        <div class="products-grid">
+          <article class="product-card" data-product="fangyoumei-1">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/fangyoumei-cashmere-care.jpg"
+                   alt="纺优美羊绒专护液"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">纺优美羊绒专护液</h4>
+              <p class="product-spec">高端面料 · 专业护理</p>
+              <p class="product-price">¥68-128</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="fangyoumei-2">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/fangyoumei-fabric-essence.jpg"
+                   alt="纺优美织物精华"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">纺优美织物精华</h4>
+              <p class="product-spec">纤维修复 · 柔顺护理</p>
+              <p class="product-price">¥58-98</p>
+            </div>
+          </article>
+          <article class="product-card" data-product="fangyoumei-3">
+            <div class="product-image-wrapper">
+              <img src="/assets/products/fangyoumei-anti-static.jpg"
+                   alt="纺优美除静电喷雾"
+                   class="product-image"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <h4 class="product-name">纺优美除静电喷雾</h4>
+              <p class="product-spec">即时除静电 · 便携装</p>
+              <p class="product-price">¥45-78</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="brand-recommendations" data-aos="fade-up">
+        <h3 class="section-subtitle">威莱矩阵其他选择</h3>
+        <p class="recommendations-intro">专业护理之外，您可能还需要：</p>
+        <div class="recommendations-grid">
+          <a href="#brand-na" class="recommendation-card" data-brand="na">
+            <span class="recommendation-icon">Na</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">Na</h4>
+              <p class="recommendation-reason">品质关联 - 高端香氛奢华体验</p>
+            </div>
+          </a>
+          <a href="#brand-jinghua" class="recommendation-card" data-brand="jinghua">
+            <span class="recommendation-icon">菁</span>
+            <div class="recommendation-content">
+              <h4 class="recommendation-name">菁华</h4>
+              <p class="recommendation-reason">天然护理 - 日常衣物温和守护</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Matcher Section -->
+  <section id="smart-matcher"
+           class="smart-matcher-section"
+           data-section="smart-matcher"
+           aria-labelledby="matcher-title">
+    <div class="matcher-container">
+      <div class="matcher-header" data-aos="fade-up">
+        <p class="matcher-eyebrow">智能推荐</p>
+        <h2 id="matcher-title" class="matcher-title">找到最适合您的品牌</h2>
+        <p class="matcher-subtitle">
+          回答4个简单问题，我们将为您推荐最匹配的品牌组合
+        </p>
+      </div>
+
+      <div class="matcher-wizard" data-aos="fade-up" data-aos-delay="200">
+        <!-- Step Progress -->
+        <div class="matcher-progress" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
           </div>
-          <div class="product-card">
-            <div class="product-name">威露士消毒液</div>
-            <div class="product-spec">衣物消毒 · 600ml</div>
+          <div class="progress-steps">
+            <span class="progress-step active" data-step="1">1</span>
+            <span class="progress-step" data-step="2">2</span>
+            <span class="progress-step" data-step="3">3</span>
+            <span class="progress-step" data-step="4">4</span>
           </div>
-          <div class="product-card">
-            <div class="product-name">威露士内衣专用</div>
-            <div class="product-spec">贴身衣物 · 500ml</div>
+        </div>
+
+        <!-- Question Container -->
+        <div class="matcher-questions">
+          <!-- Question 1: Family Status -->
+          <div class="matcher-question active" data-question="1">
+            <h3 class="question-title">您的家庭状况？</h3>
+            <div class="question-options">
+              <button class="option-card" data-value="baby" data-next="2">
+                <span class="option-icon">👶</span>
+                <span class="option-label">有0-6岁宝宝</span>
+              </button>
+              <button class="option-card" data-value="kids" data-next="2">
+                <span class="option-icon">👨‍👩‍👧‍👦</span>
+                <span class="option-label">有学龄儿童</span>
+              </button>
+              <button class="option-card" data-value="couple" data-next="2">
+                <span class="option-icon">💑</span>
+                <span class="option-label">夫妻/情侣</span>
+              </button>
+              <button class="option-card" data-value="single" data-next="2">
+                <span class="option-icon">🧑</span>
+                <span class="option-label">单身独居</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 2: Budget -->
+          <div class="matcher-question" data-question="2">
+            <h3 class="question-title">您的预算范围？</h3>
+            <div class="question-options">
+              <button class="option-card" data-value="economy" data-next="3">
+                <span class="option-icon">💰</span>
+                <span class="option-label">经济实惠 (¥15-45)</span>
+              </button>
+              <button class="option-card" data-value="mid" data-next="3">
+                <span class="option-icon">💳</span>
+                <span class="option-label">中端品质 (¥28-88)</span>
+              </button>
+              <button class="option-card" data-value="premium" data-next="3">
+                <span class="option-icon">💎</span>
+                <span class="option-label">高端轻奢 (¥89-299)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 3: Priority -->
+          <div class="matcher-question" data-question="3">
+            <h3 class="question-title">您最关注什么？</h3>
+            <div class="question-options">
+              <button class="option-card" data-value="antibacterial" data-next="4">
+                <span class="option-icon">🦠</span>
+                <span class="option-label">杀菌消毒</span>
+              </button>
+              <button class="option-card" data-value="fragrance" data-next="4">
+                <span class="option-icon">🌸</span>
+                <span class="option-label">香氛体验</span>
+              </button>
+              <button class="option-card" data-value="safety" data-next="4">
+                <span class="option-icon">🛡️</span>
+                <span class="option-label">安全温和</span>
+              </button>
+              <button class="option-card" data-value="eco" data-next="4">
+                <span class="option-icon">🌿</span>
+                <span class="option-label">天然环保</span>
+              </button>
+              <button class="option-card" data-value="professional" data-next="4">
+                <span class="option-icon">🧵</span>
+                <span class="option-label">专业护理</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Question 4: Usage Scenario -->
+          <div class="matcher-question" data-question="4">
+            <h3 class="question-title">主要使用场景？</h3>
+            <div class="question-options">
+              <button class="option-card" data-value="daily" data-next="result">
+                <span class="option-icon">👕</span>
+                <span class="option-label">日常衣物</span>
+              </button>
+              <button class="option-card" data-value="baby" data-next="result">
+                <span class="option-icon">🍼</span>
+                <span class="option-label">婴幼儿衣物</span>
+              </button>
+              <button class="option-card" data-value="delicate" data-next="result">
+                <span class="option-icon">👗</span>
+                <span class="option-label">高端面料</span>
+              </button>
+              <button class="option-card" data-value="all" data-next="result">
+                <span class="option-icon">🏠</span>
+                <span class="option-label">全场景覆盖</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Result Display -->
+          <div class="matcher-result" data-question="result">
+            <div class="result-header">
+              <h3 class="result-title">为您推荐</h3>
+              <p class="result-subtitle">基于您的需求，我们为您精选了以下品牌组合</p>
+            </div>
+            <div class="result-brands">
+              <!-- Dynamic content populated by JavaScript -->
+            </div>
+            <div class="result-actions">
+              <button class="btn btn-primary" data-action="restart-matcher">重新测试</button>
+              <button class="btn btn-secondary" data-action="close-matcher">返回首页</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="matcher-nav">
+          <button class="btn-back" data-action="prev-question" aria-label="上一步">
+            <span aria-hidden="true">←</span> 上一步
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosystem Section -->
+  <section id="ecosystem"
+           class="ecosystem-section"
+           data-section="ecosystem"
+           aria-labelledby="ecosystem-title">
+    <div class="ecosystem-container">
+      <div class="ecosystem-header" data-aos="fade-up">
+        <p class="ecosystem-eyebrow">威莱洗护生态系统</p>
+        <h2 id="ecosystem-title" class="ecosystem-title">
+          一个家庭 五种呵护<br>
+          让每个家庭找到适合自己的洗护方式
+        </h2>
+        <p class="ecosystem-subtitle">
+          威莱五品牌矩阵通过专业细分，覆盖从¥15到¥299的全价格段，
+          满足从基础杀菌到轻奢香氛的多元化需求。各品牌互为补充，协同守护您的品质生活。
+        </p>
+      </div>
+
+      <!-- User Journey Map -->
+      <div class="ecosystem-journey" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="journey-title">不同生活阶段的品牌组合</h3>
+        <div class="journey-stages">
+          <div class="journey-stage">
+            <div class="stage-icon">👶</div>
+            <h4 class="stage-title">新生儿家庭</h4>
+            <div class="stage-brands">
+              <span class="stage-brand" data-brand="lamama">Lamama</span>
+              <span class="stage-plus">+</span>
+              <span class="stage-brand" data-brand="walch">威露士</span>
+            </div>
+            <p class="stage-desc">宝宝专用安全守护 + 全家日常除菌</p>
+          </div>
+
+          <div class="journey-stage">
+            <div class="stage-icon">👨‍👩‍👧</div>
+            <h4 class="stage-title">学龄儿童家庭</h4>
+            <div class="stage-brands">
+              <span class="stage-brand" data-brand="walch">威露士</span>
+              <span class="stage-plus">+</span>
+              <span class="stage-brand" data-brand="jinghua">菁华</span>
+            </div>
+            <p class="stage-desc">日常健康基础 + 天然环保升级</p>
+          </div>
+
+          <div class="journey-stage">
+            <div class="stage-icon">💼</div>
+            <h4 class="stage-title">都市白领</h4>
+            <div class="stage-brands">
+              <span class="stage-brand" data-brand="na">Na</span>
+              <span class="stage-plus">+</span>
+              <span class="stage-brand" data-brand="fangyoumei">纺优美</span>
+            </div>
+            <p class="stage-desc">品质生活享受 + 贵重衣物保养</p>
+          </div>
+
+          <div class="journey-stage">
+            <div class="stage-icon">🌿</div>
+            <h4 class="stage-title">环保主义者</h4>
+            <div class="stage-brands">
+              <span class="stage-brand" data-brand="jinghua">菁华</span>
+              <span class="stage-plus">+</span>
+              <span class="stage-brand" data-brand="lamama">Lamama</span>
+            </div>
+            <p class="stage-desc">天然植萃理念 + 0添加安全配方</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matrix Visualization -->
+      <div class="ecosystem-matrix" data-aos="fade-up" data-aos-delay="400">
+        <h3 class="matrix-title">品牌定位矩阵</h3>
+        <div class="matrix-chart">
+          <div class="matrix-axis-y">
+            <span class="axis-label axis-top">专属定制</span>
+            <span class="axis-label axis-bottom">通用大众</span>
+          </div>
+          <div class="matrix-axis-x">
+            <span class="axis-label axis-left">经济实惠</span>
+            <span class="axis-label axis-right">轻奢高端</span>
+          </div>
+          <div class="matrix-grid">
+            <div class="matrix-brand" data-brand="walch" style="left: 20%; top: 70%;">
+              <div class="brand-dot"></div>
+              <span class="brand-label">威露士<br>¥15-45</span>
+            </div>
+            <div class="matrix-brand" data-brand="jinghua" style="left: 35%; top: 55%;">
+              <div class="brand-dot"></div>
+              <span class="brand-label">菁华<br>¥28-68</span>
+            </div>
+            <div class="matrix-brand" data-brand="lamama" style="left: 45%; top: 30%;">
+              <div class="brand-dot"></div>
+              <span class="brand-label">Lamama<br>¥38-88</span>
+            </div>
+            <div class="matrix-brand" data-brand="fangyoumei" style="left: 65%; top: 25%;">
+              <div class="brand-dot"></div>
+              <span class="brand-label">纺优美<br>¥45-128</span>
+            </div>
+            <div class="matrix-brand" data-brand="na" style="left: 80%; top: 20%;">
+              <div class="brand-dot"></div>
+              <span class="brand-label">Na<br>¥89-299</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="na" class="section">
-  <div class="section-container">
-    <div class="brand-section fade-in">
-      <div class="brand-content">
-        <p class="brand-year">高端植物系</p>
-        <h3>奈十八本<br>Na Botanical</h3>
-        <p class="brand-description">融合东方草本美学与现代洗护科技，精选迷迭香、薰衣草、桉叶等18种珍贵植物精华。0刺激配方，给予衣物如护肤般的温柔呵护。</p>
-        
-        <ul class="brand-features">
-          <li>✓ 18种珍贵植物萃取，天然纯净</li>
-          <li>✓ 0添加刺激成分，敏感肌友好</li>
-          <li>✓ 东方草本调香，自然芬芳</li>
-          <li>✓ 护肤级配方，温和洁净</li>
-        </ul>
-        
-        <div class="products-grid">
-          <div class="product-card" style="background: rgba(196,160,74,0.1);">
-            <div class="product-name">奈十八本植物精华洗衣液</div>
-            <div class="product-spec">18种本草 · 1L</div>
-          </div>
-          <div class="product-card" style="background: rgba(196,160,74,0.1);">
-            <div class="product-name">奈十八本香氛护衣液</div>
-            <div class="product-spec">植物留香 · 800ml</div>
-          </div>
-          <div class="product-card" style="background: rgba(196,160,74,0.1);">
-            <div class="product-name">奈十八本洗衣凝珠</div>
-            <div class="product-spec">便捷浓缩 · 30颗</div>
-          </div>
-        </div>
-      </div>
-      <img src="assets/na-hero.png" alt="奈十八本" class="brand-image">
-    </div>
-  </div>
-</section>
+</main>
 
-<section id="lamama" class="section">
-  <div class="section-container">
-    <div class="brand-section fade-in">
-      <img src="assets/lamama-hero.png" alt="Lamama" class="brand-image">
-      <div class="brand-content">
-        <p class="brand-year">妈妈专属</p>
-        <h3>Lamama<br>妈妈的安心之选</h3>
-        <p class="brand-description">专为妈妈和宝宝设计的安全洗护品牌。采用婴儿级低敏配方，经过新生儿皮肤学测试，无荧光剂、无磷、无刺激，让妈妈放心，宝宝安心。</p>
-        
-        <ul class="brand-features">
-          <li>✓ 婴儿皮肤学测试，新生儿可用</li>
-          <li>✓ 无荧光剂、无磷、无刺激</li>
-          <li>✓ 低敏温和配方，呵护敏感肌</li>
-          <li>✓ 易漂洗无残留，安全可靠</li>
-        </ul>
-        
-        <div class="products-grid">
-          <div class="product-card" style="background: #fff;">
-            <div class="product-name">Lamama婴儿洗衣液</div>
-            <div class="product-spec">新生儿专用 · 1L</div>
-          </div>
-          <div class="product-card" style="background: #fff;">
-            <div class="product-name">Lamama宝宝护衣液</div>
-            <div class="product-spec">柔软抗静电 · 800ml</div>
-          </div>
-          <div class="product-card" style="background: #fff;">
-            <div class="product-name">Lamama儿童洗衣皂</div>
-            <div class="product-spec">手洗专用 · 200g</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="jinghua" class="section">
-  <div class="section-container">
-    <div class="brand-section fade-in">
-      <div class="brand-content">
-        <p class="brand-year" style="color: #C4891A;">顶奢香氛</p>
-        <h3>菁华<br>Jinghua Essence</h3>
-        <p class="brand-description">将高端香氛艺术带入衣物护理领域。由专业调香师精心调配，采用天然精油与珍贵香料，为衣物赋予持久72小时的奢华香氛体验。</p>
-        
-        <ul class="brand-features">
-          <li>✓ 专业调香师配方，媲美高端香水</li>
-          <li>✓ 持香72小时，留香持久</li>
-          <li>✓ 天然精油调香，奢华质感</li>
-          <li>✓ 奢品级衣物护理，尊享体验</li>
-        </ul>
-        
-        <div class="products-grid">
-          <div class="product-card" style="background: rgba(196,137,26,0.1);">
-            <div class="product-name">菁华香氛洗衣液</div>
-            <div class="product-spec">黑瓶奢香 · 1L</div>
-          </div>
-          <div class="product-card" style="background: rgba(196,137,26,0.1);">
-            <div class="product-name">菁华护衣精华</div>
-            <div class="product-spec">深层护理 · 800ml</div>
-          </div>
-          <div class="product-card" style="background: rgba(196,137,26,0.1);">
-            <div class="product-name">菁华香氛珠</div>
-            <div class="product-spec">持久留香 · 520ml</div>
-          </div>
-        </div>
-      </div>
-      <img src="assets/jinghua-hero.png" alt="菁华" class="brand-image">
-    </div>
-  </div>
-</section>
-
-<section id="fangyoumei" class="section">
-  <div class="section-container">
-    <div class="brand-section fade-in">
-      <img src="assets/fangyoumei-hero.png" alt="纺优美" class="brand-image">
-      <div class="brand-content">
-        <p class="brand-year">专业织物护理</p>
-        <h3>纺优美<br>FangYoumei</h3>
-        <p class="brand-description">专注于织物护理科技的专业品牌。采用先进的纤维保护技术，深层柔顺不伤衣，抗静电、防起球，让每一件衣物都保持如新般柔软与美丽。</p>
-        
-        <ul class="brand-features">
-          <li>✓ 专业织物护理科技，深层柔顺</li>
-          <li>✓ 抗静电配方，舒适贴身</li>
-          <li>✓ 防起球保护，延长衣物寿命</li>
-          <li>✓ 丝滑质感，如新体验</li>
-        </ul>
-        
-        <div class="products-grid">
-          <div class="product-card" style="background: rgba(123,94,167,0.1);">
-            <div class="product-name">纺优美柔顺剂</div>
-            <div class="product-spec">深层柔顺 · 1L</div>
-          </div>
-          <div class="product-card" style="background: rgba(123,94,167,0.1);">
-            <div class="product-name">纺优美织物精华</div>
-            <div class="product-spec">纤维护理 · 800ml</div>
-          </div>
-          <div class="product-card" style="background: rgba(123,94,167,0.1);">
-            <div class="product-name">纺优美除静电喷雾</div>
-            <div class="product-spec">即时除静电 · 300ml</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
   <div class="footer-container">
+    <!-- Brand Grid -->
     <div class="footer-brands">
-      <div class="footer-brand">
-        <div class="footer-brand-name">威露士</div>
-        <div class="footer-brand-position">全球除菌专家</div>
+      <div class="footer-brand-group">
+        <h3 class="footer-group-title">品牌矩阵</h3>
+        <nav class="footer-brand-nav" aria-label="品牌导航">
+          <a href="#brand-walch" class="footer-brand-link" data-brand="walch">
+            <span class="footer-brand-name">威露士 Walch</span>
+            <span class="footer-brand-desc">大众市场领导者 · 专业杀菌</span>
+          </a>
+          <a href="#brand-na" class="footer-brand-link" data-brand="na">
+            <span class="footer-brand-name">Na 奈十八本</span>
+            <span class="footer-brand-desc">高端香氛洗护 · 轻奢体验</span>
+          </a>
+          <a href="#brand-lamama" class="footer-brand-link" data-brand="lamama">
+            <span class="footer-brand-name">Lamama</span>
+            <span class="footer-brand-desc">母婴专业洗护 · 安全温和</span>
+          </a>
+          <a href="#brand-jinghua" class="footer-brand-link" data-brand="jinghua">
+            <span class="footer-brand-name">菁华 Jinghua</span>
+            <span class="footer-brand-desc">天然植物洗护 · 环保理念</span>
+          </a>
+          <a href="#brand-fangyoumei" class="footer-brand-link" data-brand="fangyoumei">
+            <span class="footer-brand-name">纺优美 Fangyoumei</span>
+            <span class="footer-brand-desc">专业衣物护理 · 高端面料</span>
+          </a>
+        </nav>
       </div>
-      <div class="footer-brand">
-        <div class="footer-brand-name">奈十八本</div>
-        <div class="footer-brand-position">植物本草洗护</div>
+
+      <div class="footer-info-group">
+        <h3 class="footer-group-title">关于威莱</h3>
+        <nav class="footer-info-nav" aria-label="公司信息导航">
+          <a href="#about" class="footer-info-link">集团简介</a>
+          <a href="#ecosystem" class="footer-info-link">品牌矩阵战略</a>
+          <a href="#smart-matcher" class="footer-info-link">智能品牌推荐</a>
+          <a href="#contact" class="footer-info-link">联系我们</a>
+        </nav>
       </div>
-      <div class="footer-brand">
-        <div class="footer-brand-name">Lamama</div>
-        <div class="footer-brand-position">母婴安全护理</div>
-      </div>
-      <div class="footer-brand">
-        <div class="footer-brand-name">菁华</div>
-        <div class="footer-brand-position">奢华香氛体验</div>
-      </div>
-      <div class="footer-brand">
-        <div class="footer-brand-name">纺优美</div>
-        <div class="footer-brand-position">专业织物护理</div>
+
+      <div class="footer-contact-group">
+        <h3 class="footer-group-title">联系方式</h3>
+        <address class="footer-contact">
+          <p class="contact-item">
+            <span class="contact-label">客服热线：</span>
+            <a href="tel:400-820-9999" class="contact-link">400-820-9999</a>
+          </p>
+          <p class="contact-item">
+            <span class="contact-label">电子邮箱：</span>
+            <a href="mailto:info@wellycare.com" class="contact-link">info@wellycare.com</a>
+          </p>
+        </address>
+
+        <div class="footer-social">
+          <h4 class="social-title">关注我们</h4>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="微信公众号">
+              <span class="social-icon">📱</span>
+            </a>
+            <a href="#" class="social-link" aria-label="微博">
+              <span class="social-icon">🐦</span>
+            </a>
+            <a href="#" class="social-link" aria-label="抖音">
+              <span class="social-icon">🎵</span>
+            </a>
+            <a href="#" class="social-link" aria-label="小红书">
+              <span class="social-icon">📖</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Footer Bottom -->
     <div class="footer-bottom">
-      <p>衣物洗护完整矩阵 · 从大众杀菌到高端香氛的全场景覆盖</p>
-      <p style="margin-top: 20px; opacity: 0.3;">© 2026 品牌家族. All rights reserved.</p>
+      <div class="footer-bottom-content">
+        <div class="footer-logo">
+          <span class="footer-logo-text">威莱洗护矩阵</span>
+          <span class="footer-logo-tagline">Welly Care Matrix</span>
+        </div>
+        <p class="footer-slogan">
+          专业细分 · 协同守护 · 让每个家庭找到适合自己的洗护方式
+        </p>
+        <div class="footer-legal">
+          <p class="copyright">© 2026 威莱集团 Welly Care Group. All Rights Reserved.</p>
+          <nav class="legal-links" aria-label="法律信息">
+            <a href="#privacy" class="legal-link">隐私政策</a>
+            <span class="legal-divider">|</span>
+            <a href="#terms" class="legal-link">使用条款</a>
+            <span class="legal-divider">|</span>
+            <a href="#sitemap" class="legal-link">网站地图</a>
+          </nav>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
 
-<script>
-// Scroll reveal animation
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
-};
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" data-menu="mobile" aria-hidden="true">
+  <div class="mobile-menu-content">
+    <div class="mobile-menu-header">
+      <span class="mobile-menu-title">威莱品牌矩阵</span>
+      <button class="btn-close-menu" data-action="close-mobile-menu" aria-label="关闭菜单">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <nav class="mobile-menu-nav" aria-label="移动端主导航">
+      <a href="#brand-walch" class="mobile-menu-link" data-brand="walch">
+        <span class="menu-link-icon">W</span>
+        <span class="menu-link-text">威露士 Walch</span>
+      </a>
+      <a href="#brand-na" class="mobile-menu-link" data-brand="na">
+        <span class="menu-link-icon">Na</span>
+        <span class="menu-link-text">Na 奈十八本</span>
+      </a>
+      <a href="#brand-lamama" class="mobile-menu-link" data-brand="lamama">
+        <span class="menu-link-icon">L</span>
+        <span class="menu-link-text">Lamama</span>
+      </a>
+      <a href="#brand-jinghua" class="mobile-menu-link" data-brand="jinghua">
+        <span class="menu-link-icon">菁</span>
+        <span class="menu-link-text">菁华 Jinghua</span>
+      </a>
+      <a href="#brand-fangyoumei" class="mobile-menu-link" data-brand="fangyoumei">
+        <span class="menu-link-icon">纺</span>
+        <span class="menu-link-text">纺优美 Fangyoumei</span>
+      </a>
+    </nav>
+    <button class="btn btn-primary mobile-menu-cta" data-action="open-matcher">
+      智能品牌推荐
+    </button>
+  </div>
+</div>
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, observerOptions);
+<!-- Smart Matcher Modal Overlay -->
+<div class="matcher-modal-overlay" data-modal="matcher" aria-hidden="true" role="dialog" aria-labelledby="matcher-modal-title">
+  <div class="matcher-modal-content">
+    <button class="btn-close-modal" data-action="close-matcher-modal" aria-label="关闭推荐工具">
+      <span aria-hidden="true">×</span>
+    </button>
+    <div id="matcher-modal-content">
+      <!-- Matcher content will be loaded here -->
+    </div>
+  </div>
+</div>
 
-document.querySelectorAll('.fade-in').forEach(el => {
-  observer.observe(el);
-});
+<!-- Loading Indicator -->
+<div class="loading-indicator" aria-live="polite" aria-busy="false">
+  <div class="loading-spinner"></div>
+  <p class="loading-text">加载中...</p>
+</div>
 
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-</script>
+<!-- Back to Top Button -->
+<button class="btn-back-to-top"
+        data-action="scroll-to-top"
+        aria-label="返回顶部"
+        style="display: none;">
+  <span aria-hidden="true">↑</span>
+</button>
 
 </body>
 </html>
