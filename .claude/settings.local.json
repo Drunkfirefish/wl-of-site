@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(python3 -m http.server 8000)",
+      "Bash(echo \"进程ID: $!\")",
+      "Bash(open *)",
+      "Bash(python3 *)",
+      "Read(//Applications/Google Chrome.app/Contents/MacOS/**)",
+      "Read(//Applications/Microsoft Edge.app/Contents/MacOS/**)",
+      "Read(//System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/MacOS/**)"
     ]
   }
 }

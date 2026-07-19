@@ -1,9 +1,0 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2" fill="none"/>
-  <path d="M 18 32 Q 32 20, 46 32" stroke="currentColor" stroke-width="2" fill="none"/>
-  <path d="M 18 32 Q 32 44, 46 32" stroke="currentColor" stroke-width="2" fill="none"/>
-  <circle cx="24" cy="26" r="2" fill="currentColor"/>
-  <circle cx="40" cy="26" r="2" fill="currentColor"/>
-  <path d="M 32 22 L 32 28 M 28 25 L 32 28 L 36 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-  <text x="32" y="60" font-family="Arial, sans-serif" font-size="7" fill="currentColor" text-anchor="middle">环保</text>
-</svg>
