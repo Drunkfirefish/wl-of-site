@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='12' cy='32' r='7' fill='%23174d9b'/%3E%3Ccircle cx='26' cy='32' r='7' fill='%23d96e4b'/%3E%3Ccircle cx='40' cy='32' r='7' fill='%23817199'/%3E%3Ccircle cx='54' cy='32' r='7' fill='%23b89a69'/%3E%3C/svg%3E" />
+    <title>衣物洗护完整矩阵 · 品牌家族</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --walch-primary: #003A8C;
+  --walch-bg: #EAF4FF;
+  --na-primary: #111E0F;
+  --na-accent: #C4A04A;
+  --lamama-primary: #D4607A;
+  --lamama-bg: #FFF8F5;
+  --jinghua-primary: #0A0602;
+  --jinghua-accent: #C4891A;
+  --fangyoumei-primary: #7B5EA7;
+  --fangyoumei-bg: #EDE8F5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 20px 0;
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #1a1a1a;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  max-width: 1000px;
+  padding: 0 60px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 96px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  letter-spacing: -2px;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  font-weight: 300;
+  opacity: 0.9;
+  margin-bottom: 60px;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 160px 60px;
+  position: relative;
+}
+
+.section-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 80px;
+}
+
+.section-eyebrow {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.section-description {
+  font-size: 20px;
+  line-height: 1.8;
+  max-width: 700px;
+  opacity: 0.8;
+}
+
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  margin-bottom: 120px;
+}
+
+.brand-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.brand-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.brand-card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+}
+
+.brand-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.brand-card-tagline {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.brand-card-position {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.5;
+}
+
+.brand-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.brand-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.brand-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.brand-year {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.5;
+  margin-bottom: 30px;
+}
+
+.brand-description {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  opacity: 0.8;
+}
+
+.brand-features {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.brand-features li {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+
+.brand-features li:last-child {
+  border-bottom: none;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.product-name {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product-spec {
+  font-size: 14px;
+  color: #666;
+}
+
+.footer {
+  background: #0a0a0a;
+  color: white;
+  padding: 100px 60px 60px;
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.footer-brands {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand {
+  text-align: center;
+}
+
+.footer-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-brand-position {
+  font-size: 12px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#overview {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: white;
+}
+
+#walch {
+  background: var(--walch-bg);
+  color: var(--walch-primary);
+}
+
+#na {
+  background: var(--na-primary);
+  color: white;
+}
+
+#lamama {
+  background: var(--lamama-bg);
+  color: #2a2a2a;
+}
+
+#jinghua {
+  background: var(--jinghua-primary);
+  color: white;
+}
+
+#fangyoumei {
+  background: var(--fangyoumei-bg);
+  color: var(--fangyoumei-primary);
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="#" class="nav-logo">衣物洗护矩阵</a>
+    <ul class="nav-links">
+      <li><a href="#walch">净澜</a></li>
+      <li><a href="#na">沐光</a></li>
+      <li><a href="#lamama">Roujing</a></li>
+      <li><a href="#jinghua">素澈</a></li>
+      <li><a href="#fangyoumei">沁柔</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <img src="assets/matrix-hero.png" alt="品牌矩阵" class="hero-bg">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">衣物洗护<br>完整矩阵</h1>
+    <p class="hero-subtitle">从大众杀菌到高端香氛，五大品牌一体覆盖全场景衣物护理需求</p>
+  </div>
+  <div class="hero-scroll">滚动探索</div>
+</section>
+
+<section id="overview" class="section">
+  <div class="section-container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">品牌矩阵</p>
+      <h2 class="section-title">五大品牌<br>全场景覆盖</h2>
+      <p class="section-description">从基础除菌到顶奢香氛，从婴幼儿级安全到专业织物护理，满足不同家庭的差异化洗护需求。</p>
+    </div>
+    
+    <div class="brand-grid fade-in">
+      <div class="brand-card" onclick="location.href='#walch'">
+        <div class="brand-card-icon" style="background: #003A8C;">W</div>
+        <h3 class="brand-card-name">净澜</h3>
+        <p class="brand-card-tagline">全球除菌专家</p>
+        <p class="brand-card-position">Mass Market · Antibacterial</p>
+      </div>
+      
+      <div class="brand-card" onclick="location.href='#na'">
+        <div class="brand-card-icon" style="background: linear-gradient(135deg, #111E0F, #C4A04A);">沐光</div>
+        <h3 class="brand-card-name">沐光</h3>
+        <p class="brand-card-tagline">十八种本草精华</p>
+        <p class="brand-card-position">Premium · Botanical</p>
+      </div>
+      
+      <div class="brand-card" onclick="location.href='#lamama'">
+        <div class="brand-card-icon" style="background: #D4607A;">L</div>
+        <h3 class="brand-card-name">Roujing</h3>
+        <p class="brand-card-tagline">妈妈专属安心之选</p>
+        <p class="brand-card-position">Baby Safe · Gentle</p>
+      </div>
+      
+      <div class="brand-card" onclick="location.href='#jinghua'">
+        <div class="brand-card-icon" style="background: linear-gradient(135deg, #0A0602, #C4891A);">菁</div>
+        <h3 class="brand-card-name">素澈</h3>
+        <p class="brand-card-tagline">顶奢香氛体验</p>
+        <p class="brand-card-position">Luxury · Fragrance</p>
+      </div>
+      
+      <div class="brand-card" onclick="location.href='#fangyoumei'">
+        <div class="brand-card-icon" style="background: #7B5EA7;">纺</div>
+        <h3 class="brand-card-name">沁柔</h3>
+        <p class="brand-card-tagline">专业织物护理</p>
+        <p class="brand-card-position">Fabric Care · Professional</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="walch" class="section">
+  <div class="section-container">
+    <div class="brand-section fade-in">
+      <img src="assets/walch-hero.png" alt="净澜" class="brand-image">
+      <div class="brand-content">
+        <p class="brand-year">始于 1896</p>
+        <h3>净澜<br>Jinglan</h3>
+        <p class="brand-description">超过百年历史的全球专业除菌品牌，源自英国的消毒洗护专家。净澜凭借专业的抗菌技术，为全球70+国家提供值得信赖的衣物除菌保护。</p>
+        
+        <ul class="brand-features">
+          <li>✓ 99.9%有效除菌率，经权威实验室认证</li>
+          <li>✓ 皮肤科测试安全，温和不刺激</li>
+          <li>✓ 全球70+国家销售，千万家庭信赖</li>
+          <li>✓ 专业抗菌科技，持久保护</li>
+        </ul>
+        
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-name">净澜除菌洗衣液</div>
+            <div class="product-spec">深层除菌 · 1kg</div>
+          </div>
+          <div class="product-card">
+            <div class="product-name">净澜消毒液</div>
+            <div class="product-spec">衣物消毒 · 600ml</div>
+          </div>
+          <div class="product-card">
+            <div class="product-name">净澜内衣专用</div>
+            <div class="product-spec">贴身衣物 · 500ml</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="na" class="section">
+  <div class="section-container">
+    <div class="brand-section fade-in">
+      <div class="brand-content">
+        <p class="brand-year">高端植物系</p>
+        <h3>沐光<br>沐光 Botanical</h3>
+        <p class="brand-description">融合东方草本美学与现代洗护科技，精选迷迭香、薰衣草、桉叶等18种珍贵植物精华。0刺激配方，给予衣物如护肤般的温柔呵护。</p>
+        
+        <ul class="brand-features">
+          <li>✓ 18种珍贵植物萃取，天然纯净</li>
+          <li>✓ 0添加刺激成分，敏感肌友好</li>
+          <li>✓ 东方草本调香，自然芬芳</li>
+          <li>✓ 护肤级配方，温和洁净</li>
+        </ul>
+        
+        <div class="products-grid">
+          <div class="product-card" style="background: rgba(196,160,74,0.1);">
+            <div class="product-name">沐光植物精华洗衣液</div>
+            <div class="product-spec">18种本草 · 1L</div>
+          </div>
+          <div class="product-card" style="background: rgba(196,160,74,0.1);">
+            <div class="product-name">沐光香氛护衣液</div>
+            <div class="product-spec">植物留香 · 800ml</div>
+          </div>
+          <div class="product-card" style="background: rgba(196,160,74,0.1);">
+            <div class="product-name">沐光洗衣凝珠</div>
+            <div class="product-spec">便捷浓缩 · 30颗</div>
+          </div>
+        </div>
+      </div>
+      <img src="assets/na-hero.png" alt="沐光" class="brand-image">
+    </div>
+  </div>
+</section>
+
+<section id="lamama" class="section">
+  <div class="section-container">
+    <div class="brand-section fade-in">
+      <img src="assets/lamama-hero.png" alt="Roujing" class="brand-image">
+      <div class="brand-content">
+        <p class="brand-year">妈妈专属</p>
+        <h3>Roujing<br>妈妈的安心之选</h3>
+        <p class="brand-description">专为妈妈和宝宝设计的安全洗护品牌。采用婴儿级低敏配方，经过新生儿皮肤学测试，无荧光剂、无磷、无刺激，让妈妈放心，宝宝安心。</p>
+        
+        <ul class="brand-features">
+          <li>✓ 婴儿皮肤学测试，新生儿可用</li>
+          <li>✓ 无荧光剂、无磷、无刺激</li>
+          <li>✓ 低敏温和配方，呵护敏感肌</li>
+          <li>✓ 易漂洗无残留，安全可靠</li>
+        </ul>
+        
+        <div class="products-grid">
+          <div class="product-card" style="background: #fff;">
+            <div class="product-name">Roujing婴儿洗衣液</div>
+            <div class="product-spec">新生儿专用 · 1L</div>
+          </div>
+          <div class="product-card" style="background: #fff;">
+            <div class="product-name">Roujing宝宝护衣液</div>
+            <div class="product-spec">柔软抗静电 · 800ml</div>
+          </div>
+          <div class="product-card" style="background: #fff;">
+            <div class="product-name">Roujing儿童洗衣皂</div>
+            <div class="product-spec">手洗专用 · 200g</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="jinghua" class="section">
+  <div class="section-container">
+    <div class="brand-section fade-in">
+      <div class="brand-content">
+        <p class="brand-year" style="color: #C4891A;">顶奢香氛</p>
+        <h3>素澈<br>Suchè Essence</h3>
+        <p class="brand-description">将高端香氛艺术带入衣物护理领域。由专业调香师精心调配，采用天然精油与珍贵香料，为衣物赋予持久72小时的奢华香氛体验。</p>
+        
+        <ul class="brand-features">
+          <li>✓ 专业调香师配方，媲美高端香水</li>
+          <li>✓ 持香72小时，留香持久</li>
+          <li>✓ 天然精油调香，奢华质感</li>
+          <li>✓ 奢品级衣物护理，尊享体验</li>
+        </ul>
+        
+        <div class="products-grid">
+          <div class="product-card" style="background: rgba(196,137,26,0.1);">
+            <div class="product-name">素澈香氛洗衣液</div>
+            <div class="product-spec">黑瓶奢香 · 1L</div>
+          </div>
+          <div class="product-card" style="background: rgba(196,137,26,0.1);">
+            <div class="product-name">素澈护衣精华</div>
+            <div class="product-spec">深层护理 · 800ml</div>
+          </div>
+          <div class="product-card" style="background: rgba(196,137,26,0.1);">
+            <div class="product-name">素澈香氛珠</div>
+            <div class="product-spec">持久留香 · 520ml</div>
+          </div>
+        </div>
+      </div>
+      <img src="assets/jinghua-hero.png" alt="素澈" class="brand-image">
+    </div>
+  </div>
+</section>
+
+<section id="fangyoumei" class="section">
+  <div class="section-container">
+    <div class="brand-section fade-in">
+      <img src="assets/fangyoumei-hero.png" alt="沁柔" class="brand-image">
+      <div class="brand-content">
+        <p class="brand-year">专业织物护理</p>
+        <h3>沁柔<br>Qinrou</h3>
+        <p class="brand-description">专注于织物护理科技的专业品牌。采用先进的纤维保护技术，深层柔顺不伤衣，抗静电、防起球，让每一件衣物都保持如新般柔软与美丽。</p>
+        
+        <ul class="brand-features">
+          <li>✓ 专业织物护理科技，深层柔顺</li>
+          <li>✓ 抗静电配方，舒适贴身</li>
+          <li>✓ 防起球保护，延长衣物寿命</li>
+          <li>✓ 丝滑质感，如新体验</li>
+        </ul>
+        
+        <div class="products-grid">
+          <div class="product-card" style="background: rgba(123,94,167,0.1);">
+            <div class="product-name">沁柔柔顺剂</div>
+            <div class="product-spec">深层柔顺 · 1L</div>
+          </div>
+          <div class="product-card" style="background: rgba(123,94,167,0.1);">
+            <div class="product-name">沁柔织物精华</div>
+            <div class="product-spec">纤维护理 · 800ml</div>
+          </div>
+          <div class="product-card" style="background: rgba(123,94,167,0.1);">
+            <div class="product-name">沁柔除静电喷雾</div>
+            <div class="product-spec">即时除静电 · 300ml</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brands">
+      <div class="footer-brand">
+        <div class="footer-brand-name">净澜</div>
+        <div class="footer-brand-position">全球除菌专家</div>
+      </div>
+      <div class="footer-brand">
+        <div class="footer-brand-name">沐光</div>
+        <div class="footer-brand-position">植物本草洗护</div>
+      </div>
+      <div class="footer-brand">
+        <div class="footer-brand-name">Roujing</div>
+        <div class="footer-brand-position">母婴安全护理</div>
+      </div>
+      <div class="footer-brand">
+        <div class="footer-brand-name">素澈</div>
+        <div class="footer-brand-position">奢华香氛体验</div>
+      </div>
+      <div class="footer-brand">
+        <div class="footer-brand-name">沁柔</div>
+        <div class="footer-brand-position">专业织物护理</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>衣物洗护完整矩阵 · 从大众杀菌到高端香氛的全场景覆盖</p>
+      <p style="margin-top: 20px; opacity: 0.3;">© 2026 品牌家族. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+</script>
+
+<style>
+.model-credit{position:fixed;bottom:12px;right:16px;z-index:999;font:700 15px/1 -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:.02em;color:rgba(0,0,0,.45);background:rgba(255,255,255,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 16px;border-radius:24px;border:1px solid rgba(0,0,0,.08);pointer-events:none;user-select:none}
+.model-credit b{font-weight:700;color:rgba(0,0,0,.7)}
+.model-credit span{font:600 13px/1 "SF Mono",Menlo,monospace;color:rgba(0,0,0,.3);margin-left:4px}
+</style>
+<div class="model-credit">Made by <b>Claude Opus</b> <span>4.8</span></div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f1eb" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='12' cy='32' r='7' fill='%23174d9b'/%3E%3Ccircle cx='26' cy='32' r='7' fill='%23d96e4b'/%3E%3Ccircle cx='40' cy='32' r='7' fill='%23817199'/%3E%3Ccircle cx='54' cy='32' r='7' fill='%23b89a69'/%3E%3C/svg%3E" />
+    <title>照料的光谱 | 衣物与日常的五种方式</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="mark" href="#top" aria-label="照料光谱首页">
+        <span class="mark-dot"></span><span>CARE / 05</span>
+      </a>
+      <nav class="main-nav" aria-label="章节导航">
+        <a href="#matrix">照料矩阵</a>
+        <a href="#brands">品牌世界</a>
+        <a href="#moments">衣物时刻</a>
+      </nav>
+      <button class="edition" type="button" data-scroll="#brands">2026 COLLECTION <span>↘</span></button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">GUANGYU / PERSONAL CARE EDIT</p>
+          <h1>洗净之后，<br />还有更长的<span>照料</span>。</h1>
+          <p class="hero-intro">从日常防护到感官留香，我们以五种不同的照料语言，回应一件衣物在生活中的全部旅程。</p>
+          <a class="text-link" href="#matrix">探索完整矩阵 <i>↓</i></a>
+        </div>
+        <figure class="hero-visual reveal delay-1">
+          <img src="assets/care-atelier-hero.png" alt="由棉织物、紫色轻纱与无标洗护瓶构成的洗护静物" />
+          <figcaption>STUDY 01 / CLEAN, THEN CARE</figcaption>
+          <div class="visual-stamp">05<br /><small>WORLDS</small></div>
+        </figure>
+        <div class="hero-bottom">
+          <p>一套从清洁力到触感与气味的生活照料系统。</p>
+          <div class="scroll-cue"><span></span>SCROLL TO UNFOLD</div>
+        </div>
+      </section>
+
+      <section class="statement">
+        <p class="eyebrow">A COMPLETE CARE WARDROBE</p>
+        <p class="statement-copy">衣物不是一次性被洗净的物件。它承接运动后的汗水、通勤的气息、家的温度，也成为我们抵达之前的<span>第一印象</span>。</p>
+      </section>
+
+      <section class="matrix-section" id="matrix">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 / THE CARE MATRIX</p>
+            <h2>一件衣物，<br />五种照料方式。</h2>
+          </div>
+          <p class="section-note">五个独立品牌，以不同的功能与感受，共同铺展出从“净”到“悦”的照料光谱。</p>
+        </div>
+        <div class="matrix-wrap">
+          <div class="matrix-axis axis-top"><span>日常防护</span><span>温柔陪伴</span><span>感官仪式</span><span>肌肤舒适</span><span>衣物焕新</span></div>
+          <div class="matrix">
+            <div class="matrix-labels"><span>焕新</span><span>柔护</span><span>留香</span><span>洁净</span></div>
+            <button class="matrix-point walch selected" data-brand="walch" type="button"><b>净澜</b><small>JINGLAN</small></button>
+            <button class="matrix-point na" data-brand="na" type="button"><b>沐光</b><small>沐光</small></button>
+            <button class="matrix-point lamama" data-brand="lamama" type="button"><b>Roujing</b><small>柔软呵护</small></button>
+            <button class="matrix-point seika" data-brand="seika" type="button"><b>素澈</b><small>SUCHÈ</small></button>
+            <button class="matrix-point centralin" data-brand="centralin" type="button"><b>沁柔</b><small>QINROU</small></button>
+            <div class="matrix-lines" aria-hidden="true"></div>
+          </div>
+          <div class="matrix-detail" id="matrix-detail" aria-live="polite">
+            <p class="detail-index">01 / PROTECT</p>
+            <h3>净澜 <em>Jinglan</em></h3>
+            <p>以明确、可靠的日常防护，建立每一次清洗的安心起点。</p>
+            <span class="detail-tag">日常洁净 · 衣物防护</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="spectrum-section">
+        <div class="spectrum-caption"><p class="eyebrow">THE MATERIAL CONTINUUM</p><p>每一种照料，都有自己的触感。</p></div>
+        <img src="assets/fabric-spectrum.png" alt="由五种不同材质和颜色织物组成的流动光谱" />
+        <div class="spectrum-legend" aria-label="五种品牌色彩">
+          <span><i class="cobalt"></i>PROTECT</span><span><i class="coral"></i>NOURISH</span><span><i class="lavender"></i>SCENT</span><span><i class="green"></i>SOFTEN</span><span><i class="gold"></i>REFINE</span>
+        </div>
+      </section>
+
+      <section class="brands-section" id="brands">
+        <div class="section-head brands-head"><div><p class="eyebrow">02 / FIVE WORLDS</p><h2>各有语言，<br />共同照料。</h2></div><p class="section-note">品牌不是并列的货架，而是照料旅程中的五个感官停靠点。</p></div>
+        <div class="brand-list">
+          <article class="brand-card card-walch" data-card="walch">
+            <div class="card-number">01</div><div class="card-main"><p class="brand-kicker">PROTECTION AS PRECISION</p><h3>净澜 <em>Jinglan</em></h3><p>看不见的，也该被认真洗去。将日常洁净落实为清晰可靠的防护习惯。</p><button type="button" data-detail="walch">了解照料重点 <span>↗</span></button></div><div class="card-art shield-art" aria-hidden="true"><i></i><i></i><i></i></div>
+          </article>
+          <article class="brand-card card-na" data-card="na">
+            <div class="card-number">02</div><div class="card-main"><p class="brand-kicker">ROOTED DAILY RITUAL</p><h3>沐光 <em>沐光</em></h3><p>把日常消耗的部分，慢慢养回来。以自然感的照料节奏，为忙碌生活留出呼吸。</p><button type="button" data-detail="na">了解照料重点 <span>↗</span></button></div><div class="card-art root-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="brand-card card-lamama" data-card="lamama">
+            <div class="card-number">03</div><div class="card-main"><p class="brand-kicker">A SOFT PLACE TO LAND</p><h3>Roujing <em>柔软呵护</em></h3><p>留一层轻柔给亲近的日常。在织物的包裹感中，感受舒适、亲密与松弛。</p><button type="button" data-detail="lamama">了解照料重点 <span>↗</span></button></div><div class="card-art veil-art" aria-hidden="true"><i></i><i></i><i></i></div>
+          </article>
+          <article class="brand-card card-seika" data-card="seika">
+            <div class="card-number">04</div><div class="card-main"><p class="brand-kicker">COMFORT IN THE DETAIL</p><h3>素澈 <em>Suchè</em></h3><p>洁净之后，仍然值得被温柔对待。让舒适从贴近肌肤的细节持续发生。</p><button type="button" data-detail="seika">了解照料重点 <span>↗</span></button></div><div class="card-art dew-art" aria-hidden="true"><i></i><i></i></div>
+          </article>
+          <article class="brand-card card-centralin" data-card="centralin">
+            <div class="card-number">05</div><div class="card-main"><p class="brand-kicker">THE FINISHING NOTE</p><h3>沁柔 <em>Qinrou</em></h3><p>让衣物成为抵达之前的第一印象。以香气、顺滑与垂坠，完成属于你的衣物表达。</p><button type="button" data-detail="centralin">了解照料重点 <span>↗</span></button></div><div class="card-art weave-art" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="moments" id="moments">
+        <div class="moments-top"><p class="eyebrow">03 / CARE BY MOMENT</p><h2>你的衣物，<br />不只在洗衣机里被照顾。</h2></div>
+        <div class="moment-tabs" role="tablist" aria-label="衣物照料时刻">
+          <button class="active" type="button" role="tab" aria-selected="true" data-moment="commute">通勤之后</button>
+          <button type="button" role="tab" aria-selected="false" data-moment="sport">运动之后</button>
+          <button type="button" role="tab" aria-selected="false" data-moment="home">家居周末</button>
+          <button type="button" role="tab" aria-selected="false" data-moment="occasion">重要场合</button>
+        </div>
+        <div class="moment-board" id="moment-board">
+          <p class="moment-index">MOMENT / 01</p><h3>通勤之后，<br /><em>洗去城市的靠近。</em></h3><p class="moment-text">从高频接触到衣物气味，让回到家的第一件事，成为重新掌握自己节奏的仪式。</p><div class="moment-route"><span class="route-dot walch-dot"></span><b>净澜</b><i></i><span class="route-dot seika-dot"></span><b>素澈</b><i></i><span class="route-dot centralin-dot"></span><b>沁柔</b></div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <p class="eyebrow">ONE WARDROBE, FULL CARE</p>
+        <h2>从一件衣物开始，<br /><span>照料整个生活。</span></h2>
+        <a class="closing-link" href="#top">回到起点 <span>↑</span></a>
+      </section>
+    </main>
+    <footer><span>CARE / 05</span><span>一套完整的日常照料语言</span><span>© 2026 EDITORIAL CONCEPT</span></footer>
+    <script src="script.js"></script>
+  <style>
+.model-credit{position:fixed;bottom:12px;right:16px;z-index:999;font:700 15px/1 -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:.02em;color:rgba(0,0,0,.45);background:rgba(255,255,255,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 16px;border-radius:24px;border:1px solid rgba(0,0,0,.08);pointer-events:none;user-select:none}
+.model-credit b{font-weight:700;color:rgba(0,0,0,.7)}
+.model-credit span{font:600 13px/1 "SF Mono",Menlo,monospace;color:rgba(0,0,0,.3);margin-left:4px}
+</style>
+<div class="model-credit">Made by <b>GPT-5</b> <span>Terra</span></div>
+</body>
+</html>
