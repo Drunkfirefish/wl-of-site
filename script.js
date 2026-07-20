@@ -55,22 +55,6 @@ brandCards.forEach(card => {
     });
 });
 
-// Product showcase parallax effect
-window.addEventListener('scroll', () => {
-    const showcases = document.querySelectorAll('.product-showcase');
-    showcases.forEach(showcase => {
-        const rect = showcase.getBoundingClientRect();
-        const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
-
-        if (scrollPercent > 0 && scrollPercent < 1) {
-            const bg = showcase.querySelector('.showcase-bg');
-            if (bg) {
-                bg.style.transform = `scale(${1 + scrollPercent * 0.1})`;
-            }
-        }
-    });
-});
-
 // Brand dot interactive effects
 const brandDots = document.querySelectorAll('.brand-dot');
 brandDots.forEach(dot => {
