@@ -1,0 +1,69 @@
+Trying to load the allocator multiple times. This is *not* supported.
+[41288:14214608:0720/232207.567374:ERROR:base/process/process_mac.cc:53] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.567556:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.625026:ERROR:base/process/process_mac.cc:53] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.625060:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.627381:ERROR:base/process/process_mac.cc:53] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.627426:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.631409:ERROR:base/process/process_mac.cc:53] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.631439:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.633160:ERROR:base/process/process_mac.cc:53] task_policy_set TASK_CATEGORY_POLICY: (os/kern) invalid argument (4)
+[41288:14214608:0720/232207.633207:ERROR:base/process/process_mac.cc:98] task_policy_set TASK_SUPPRESSION_POLICY: (os/kern) invalid argument (4)
+[41383:14215603:0720/232209.093166:VERBOSE1:chrome/updater/util/util.cc:243] Version 151.0.4096.0, log file **PII**/Library/Application Support/Microsoft/EdgeUpdater/updater.log
+[41383:14215603:0720/232209.093690:VERBOSE1:chrome/updater/updater.cc:409] Version: 151.0.4096.0, opt, ARM_64, command line: **PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/EdgeUpdater.app/Contents/MacOS/EdgeUpdater --wake-all --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[41383:14215603:0720/232209.093707:VERBOSE1:chrome/updater/updater.cc:417] OS version: 15.4.0, arch: arm64, System uptime (seconds): 653962, parent pid: 41288
+[41383:14215603:0720/232209.096272:VERBOSE1:chrome/updater/updater.cc:422] Available disk space in install directory (**PII**/Library/Application Support/Microsoft/EdgeUpdater): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41383:14215603:0720/232209.096303:VERBOSE1:chrome/updater/updater.cc:426] Available disk space in temporary directory (/var/folders/vc/tc0m7sp12gd6dv0q0_2fzsmh0000gn/T/): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41383:14215603:0720/232209.096380:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS START event to the history log
+[41385:14215607:0720/232209.102565:VERBOSE1:chrome/updater/util/util.cc:243] Version 151.0.4096.0, log file **PII**/Library/Application Support/Microsoft/EdgeUpdater/updater.log
+[41385:14215607:0720/232209.103030:VERBOSE1:chrome/updater/updater.cc:409] Version: 151.0.4096.0, opt, ARM_64, command line: **PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/EdgeUpdater.app/Contents/MacOS/EdgeUpdater --crash-handler --database=**PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/Crashpad --annotation=IsOfficialBuild=1 --annotation=plat=OS X --annotation=prod=EdgeUpdater --annotation=ver=151.0.4096.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[41385:14215607:0720/232209.103054:VERBOSE1:chrome/updater/updater.cc:417] OS version: 15.4.0, arch: arm64, System uptime (seconds): 653962, parent pid: 1
+[41385:14215607:0720/232209.106204:VERBOSE1:chrome/updater/updater.cc:422] Available disk space in install directory (**PII**/Library/Application Support/Microsoft/EdgeUpdater): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41385:14215607:0720/232209.106256:VERBOSE1:chrome/updater/updater.cc:426] Available disk space in temporary directory (/var/folders/vc/tc0m7sp12gd6dv0q0_2fzsmh0000gn/T/): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41385:14215607:0720/232209.106359:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS START event to the history log
+[41383:14215603:0720/232209.107249:VERBOSE1:chrome/updater/crash_reporter.cc:144] Crash handler launched and ready.
+[41383:14215603:0720/232209.107916:VERBOSE1:chrome/updater/crash_client.cc:120] Found 0 completed crash reports
+[41383:14215603:0720/232209.107971:VERBOSE1:chrome/updater/crash_client.cc:144] Found 0 pending crash reports
+[41383:14215603:0720/232209.108208:VERBOSE1:chrome/updater/updater.cc:116] Crash reporting initialized.
+[41383:14215603:0720/232209.124517:VERBOSE1:components/update_client/edge/component_update_utils_mac.mm:209] Device is not MDM enrolled.
+[41383:14215603:0720/232209.124555:VERBOSE1:chrome/updater/util/edge_mac_utils.mm:414] IsInternalAadJoinedMac: device is not MDM enrolled
+[41383:14215615:0720/232209.124714:VERBOSE1:chrome/updater/app/app_wakeall.cc:58] Launching `**PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/EdgeUpdater.app/Contents/MacOS/EdgeUpdater --wake`
+[41387:14215623:0720/232209.131402:VERBOSE1:chrome/updater/util/util.cc:243] Version 151.0.4096.0, log file **PII**/Library/Application Support/Microsoft/EdgeUpdater/updater.log
+[41387:14215623:0720/232209.131956:VERBOSE1:chrome/updater/updater.cc:409] Version: 151.0.4096.0, opt, ARM_64, command line: **PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/EdgeUpdater.app/Contents/MacOS/EdgeUpdater --wake --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[41387:14215623:0720/232209.131970:VERBOSE1:chrome/updater/updater.cc:417] OS version: 15.4.0, arch: arm64, System uptime (seconds): 653962, parent pid: 41383
+[41387:14215623:0720/232209.133995:VERBOSE1:chrome/updater/updater.cc:422] Available disk space in install directory (**PII**/Library/Application Support/Microsoft/EdgeUpdater): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41387:14215623:0720/232209.134016:VERBOSE1:chrome/updater/updater.cc:426] Available disk space in temporary directory (/var/folders/vc/tc0m7sp12gd6dv0q0_2fzsmh0000gn/T/): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41387:14215623:0720/232209.134083:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS START event to the history log
+[41389:14215627:0720/232209.143259:VERBOSE1:chrome/updater/util/util.cc:243] Version 151.0.4096.0, log file **PII**/Library/Application Support/Microsoft/EdgeUpdater/updater.log
+[41389:14215627:0720/232209.143782:VERBOSE1:chrome/updater/updater.cc:409] Version: 151.0.4096.0, opt, ARM_64, command line: **PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/EdgeUpdater.app/Contents/MacOS/EdgeUpdater --crash-handler --database=**PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/Crashpad --annotation=IsOfficialBuild=1 --annotation=plat=OS X --annotation=prod=EdgeUpdater --annotation=ver=151.0.4096.0 --handshake-fd=6 --enable-logging --vmodule=*/components/update_client/*=2,*/chrome/enterprise_companion/*=2,*/chrome/updater/*=2
+[41389:14215627:0720/232209.143817:VERBOSE1:chrome/updater/updater.cc:417] OS version: 15.4.0, arch: arm64, System uptime (seconds): 653962, parent pid: 1
+[41389:14215627:0720/232209.145924:VERBOSE1:chrome/updater/updater.cc:422] Available disk space in install directory (**PII**/Library/Application Support/Microsoft/EdgeUpdater): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41389:14215627:0720/232209.145946:VERBOSE1:chrome/updater/updater.cc:426] Available disk space in temporary directory (/var/folders/vc/tc0m7sp12gd6dv0q0_2fzsmh0000gn/T/): 214971703296B (200.208GiB) / 494384795648B (460.432GiB)
+[41389:14215627:0720/232209.146034:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS START event to the history log
+[41387:14215623:0720/232209.146514:VERBOSE1:chrome/updater/crash_reporter.cc:144] Crash handler launched and ready.
+[41387:14215623:0720/232209.147098:VERBOSE1:chrome/updater/crash_client.cc:120] Found 0 completed crash reports
+[41387:14215623:0720/232209.147150:VERBOSE1:chrome/updater/crash_client.cc:144] Found 0 pending crash reports
+[41387:14215623:0720/232209.147223:VERBOSE1:chrome/updater/updater.cc:116] Crash reporting initialized.
+[41387:14215623:0720/232209.164360:VERBOSE1:components/update_client/edge/component_update_utils_mac.mm:209] Device is not MDM enrolled.
+[41387:14215623:0720/232209.164394:VERBOSE1:chrome/updater/util/edge_mac_utils.mm:414] IsInternalAadJoinedMac: device is not MDM enrolled
+[41387:14215623:0720/232209.164408:VERBOSE1:chrome/updater/ipc/update_service_internal_proxy_mojo.cc:61] Run
+[41387:14215623:0720/232215.877146:VERBOSE1:chrome/updater/app/app.cc:96] Shutdown: 0
+[41387:14215623:0720/232215.878337:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS END event to the history log
+[41387:14215623:0720/232215.878354:VERBOSE1:chrome/updater/updater.cc:459] UpdaterMain (--wake) returned 0.
+[41383:14215615:0720/232216.045194:VERBOSE1:chrome/updater/app/app_wakeall.cc:68] `**PII**/Library/Application Support/Microsoft/EdgeUpdater/151.0.4096.0/EdgeUpdater.app/Contents/MacOS/EdgeUpdater --wake` exited 0
+[41383:14215603:0720/232216.045301:VERBOSE1:chrome/updater/app/app.cc:96] Shutdown: 0
+[41383:14215603:0720/232216.045690:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS END event to the history log
+[41383:14215603:0720/232216.045706:VERBOSE1:chrome/updater/updater.cc:459] UpdaterMain (--wake-all) returned 0.
+[41389:14215627:0720/232225.883040:VERBOSE1:chrome/updater/util/util.cc:243] Version 151.0.4096.0, log file **PII**/Library/Application Support/Microsoft/EdgeUpdater/updater.log
+[41389:14215627:0720/232225.883068:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS END event to the history log
+[41389:14215627:0720/232225.883077:VERBOSE1:chrome/updater/updater.cc:459] UpdaterMain (--crash-handler) returned 0.
+[41385:14215607:0720/232225.883609:VERBOSE1:chrome/updater/util/util.cc:243] Version 151.0.4096.0, log file **PII**/Library/Application Support/Microsoft/EdgeUpdater/updater.log
+[41385:14215607:0720/232225.883808:VERBOSE2:chrome/updater/event_history.cc:270] Emitted a UPDATER_PROCESS END event to the history log
+[41385:14215607:0720/232225.883821:VERBOSE1:chrome/updater/updater.cc:459] UpdaterMain (--crash-handler) returned 0.
+[0720/232235.745578:WARNING:third_party/crashpad/crashpad/util/process/process_memory_mac.cc:94] mach_vm_read(0x16fad4000, 0x8000): (os/kern) invalid address (1)
+[0720/232236.016640:WARNING:third_party/crashpad/crashpad/handler/minidump_to_upload_parameters.cc:75] duplicate annotation name browser_window_count, discarding value 2
+[0720/232236.017134:WARNING:third_party/crashpad/crashpad/util/numeric/in_range_cast.h:38] value -634136515 out of range
+[41288:14214513:0720/232235.740160:ERROR:content/browser/browser_context_impl.cc:152] NOTREACHED hit. rph_with_bc_reference : {  pl='{ edge://headless/ }' lsn=2[RFHI:ProcessHeadlessCommands@chrome/browser/headless/headless_command_processor.cc:42] }
+[0720/232236.034672:WARNING:third_party/crashpad/crashpad/util/process/process_memory_mac.cc:94] mach_vm_read(0x16fad4000, 0x8000): (os/kern) invalid address (1)
+[0720/232236.294827:WARNING:third_party/crashpad/crashpad/handler/minidump_to_upload_parameters.cc:75] duplicate annotation name browser_window_count, discarding value 2
+[0720/232236.295297:WARNING:third_party/crashpad/crashpad/util/numeric/in_range_cast.h:38] value -634136515 out of range

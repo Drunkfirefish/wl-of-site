@@ -1,45 +1,262 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#161511" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='12' cy='32' r='7' fill='%23174d9b'/%3E%3Ccircle cx='26' cy='32' r='7' fill='%23d96e4b'/%3E%3Ccircle cx='40' cy='32' r='7' fill='%23817199'/%3E%3Ccircle cx='54' cy='32' r='7' fill='%23b89a69'/%3E%3C/svg%3E" />
-    <title>CARE / 04 · 四版衣物洗护矩阵</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="shell-grain" aria-hidden="true"></div>
-    <button class="mobile-menu" type="button" aria-label="打开版本菜单" aria-expanded="false">版本 <span>+</span></button>
-    <aside class="version-dock" aria-label="版本切换栏">
-      <div class="dock-top">
-        <a class="dock-mark" href="./" aria-label="回到版本首页"><span>CARE / 04</span></a>
-        <span class="dock-status"><i></i> LOCAL</span>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>衣物洗护光谱 · 从大众杀菌到高端香氛 | 五大品牌矩阵</title>
+<meta name="description" content="威露士、Na 奈十八本、Lamama、菁华、纺优美 —— 覆盖全家洗护需求的完整品牌光谱。">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <p>The Laundry Spectrum</p>
+  <div class="bar"><i id="loaderBar"></i></div>
+</div>
+
+<nav>
+  <a class="wordmark" href="#top">洗护光谱<span>LAUNDRY SPECTRUM</span></a>
+  <ul>
+    <li><a href="#manifesto">序章</a></li>
+    <li><a href="#axis">光谱</a></li>
+    <li><a href="#ch-walch">品牌</a></li>
+    <li><a href="#matrix">矩阵</a></li>
+  </ul>
+</nav>
+
+<div class="rail" aria-label="品牌章节导航">
+  <a href="#ch-walch" style="--rc:var(--c-walch)"><i></i>01</a>
+  <a href="#ch-na" style="--rc:var(--c-na)"><i></i>02</a>
+  <a href="#ch-lamama" style="--rc:var(--c-lamama)"><i></i>03</a>
+  <a href="#ch-seika" style="--rc:var(--c-seika)"><i></i>04</a>
+  <a href="#ch-foryoume" style="--rc:var(--c-foryoume)"><i></i>05</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="bg"><img src="assets/hero.jpg" alt="五色丝缎织物悬浮于暗色空间，自冰蓝渐变至绛紫"></div>
+  <div class="hero-inner">
+    <p class="kicker">五大品牌 · 一个完整答案</p>
+    <h1>
+      <span class="row"><span>从大众杀菌，</span></span>
+      <span class="row"><span>到<em>高端香氛</em>。</span></span>
+    </h1>
+    <div class="sub">
+      <p>衣物洗护不止一种答案。从医院级的专业除菌，到沙龙级的衣物香水——五个品牌沿同一条光谱排布，覆盖每个家庭、每种面料、每一种对「干净」的想象。</p>
+      <p class="en">From mass disinfection to haute fragrance — one complete laundry care matrix.</p>
+    </div>
+    <div class="hero-brands">
+      <a href="#ch-walch" style="--bc:var(--c-walch)"><span class="no">01</span><span class="cn">威露士</span><span class="en">Walch</span></a>
+      <a href="#ch-na" style="--bc:var(--c-na)"><span class="no">02</span><span class="cn">奈十八本</span><span class="en">Na</span></a>
+      <a href="#ch-lamama" style="--bc:var(--c-lamama)"><span class="no">03</span><span class="cn">Lamama</span><span class="en">Lamama</span></a>
+      <a href="#ch-seika" style="--bc:var(--c-seika)"><span class="no">04</span><span class="cn">菁华</span><span class="en">Seika</span></a>
+      <a href="#ch-foryoume" style="--bc:var(--c-foryoume)"><span class="no">05</span><span class="cn">纺优美</span><span class="en">For You Me</span></a>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</header>
+
+<section class="manifesto shell" id="manifesto">
+  <div class="sec-head">
+    <span class="idx">§01</span><h2>序章 · 一条光谱</h2><span class="rule"></span><span class="tag">Manifesto</span>
+  </div>
+  <div class="grid">
+    <div>
+      <p class="lead rv">干净是一种科学，<br>香气是一种情绪。<br>我们用<b>五个品牌</b>，<br>把这两端缝合成一条完整的线。</p>
+      <p class="body rv">光谱的一端，是威露士以专业除菌成分守住的健康底线；另一端，是纺优美以沙龙香工艺为衣物穿上的「香水」。之间，是奈十八本的植萃本味、Lamama 的母婴柔护、菁华的花木香氛——每一档，都对应一种真实的生活场景。</p>
+      <div class="facts rv">
+        <div><b>05</b><span>品牌 Brands</span></div>
+        <div><b>03</b><span>场景 Scenes</span></div>
+        <div><b>01</b><span>光谱 Spectrum</span></div>
       </div>
-      <p class="dock-hint">点击切换制作版本</p>
-      <nav class="version-nav" aria-label="四个网站版本">
-        <button class="version-item is-active" type="button" data-version="main" aria-pressed="true">
-          <span class="version-dot"></span>kimi K3
-        </button>
-        <button class="version-item" type="button" data-version="gptversion" aria-pressed="false">
-          <span class="version-dot"></span>GPT-5 Terra
-        </button>
-        <button class="version-item" type="button" data-version="clauVersion" aria-pressed="false">
-          <span class="version-dot"></span>Claude Opus 4.8
-        </button>
-        <button class="version-item" type="button" data-version="clauV2" aria-pressed="false">
-          <span class="version-dot"></span>Claude Fable 5
-        </button>
-      </nav>
-      <div class="dock-bottom"><span>4 MODELS</span></div>
-    </aside>
-    <main class="stage">
-      <div class="stage-bar"><span id="stage-label">MAIN / KIMI K3</span><span class="stage-counter"><b id="stage-counter">01</b> / 04</span></div>
-      <div class="frame-wrap"><iframe id="version-frame" title="网站版本预览" src="versions/main/index.html"></iframe><div class="frame-loader" aria-hidden="true"><span></span></div></div>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    </div>
+    <figure class="rv">
+      <div class="frame"><img class="plx" src="assets/spectrum.jpg" alt="五叠织物自冰蓝、灰绿、绯粉、香槟金渐变至绛紫"></div>
+      <figcaption><span>The Care Gradient</span><span>Fig. 01</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="axis-sec shell" id="axis">
+  <div class="sec-head">
+    <span class="idx">§02</span><h2>光谱 · 定位坐标</h2><span class="rule"></span><span class="tag">Positioning Axis</span>
+  </div>
+  <div class="axis-wrap">
+    <div class="axis-labels">
+      <span>专业杀菌<i>Disinfection</i></span>
+      <span>高端香氛<i>Haute Fragrance</i></span>
+    </div>
+    <div class="axis"><div class="fill" id="axisFill"></div></div>
+    <div class="axis-nodes" id="axisNodes">
+      <a href="#ch-walch" style="--nc:var(--c-walch)"><span class="no">01</span><span class="cn">威露士</span><span class="en">Walch</span><span class="pos">专业除菌 · 全家安心</span></a>
+      <a href="#ch-na" style="--nc:var(--c-na)"><span class="no">02</span><span class="cn">奈十八本</span><span class="en">Na</span><span class="pos">日式植萃 · 本味洁净</span></a>
+      <a href="#ch-lamama" style="--nc:var(--c-lamama)"><span class="no">03</span><span class="cn">Lamama</span><span class="en">Lamama</span><span class="pos">母婴柔护 · 亲肤安心</span></a>
+      <a href="#ch-seika" style="--nc:var(--c-seika)"><span class="no">04</span><span class="cn">菁华</span><span class="en">Seika</span><span class="pos">花木香氛 · 高定洗护</span></a>
+      <a href="#ch-foryoume" style="--nc:var(--c-foryoume)"><span class="no">05</span><span class="cn">纺优美</span><span class="en">For You Me</span><span class="pos">奢宠香氛 · 衣物香水</span></a>
+    </div>
+    <div class="axis-foot"><span>Hygiene</span><span class="grad"></span><span>Sensory</span></div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-walch" style="--ac:var(--c-walch)">
+  <span class="big-no">01</span>
+  <div class="inner">
+    <div class="txt">
+      <p class="brand-en rv">Walch · Since Hygiene</p>
+      <h3 class="rv">威露士</h3>
+      <p class="tagline rv">专业除菌 · 全家安心</p>
+      <p class="desc rv">光谱的起点，是「干净」最坚硬的定义。威露士以专业除菌科技为衣物建立健康防线——看不见的细菌、螨虫与异味源头，在洗涤中被一并清除。它是亿万家庭无需思考的默认选择。</p>
+      <div class="spec rv">
+        <div><b>核心科技</b><span>PCMX 专业除菌成分</span></div>
+        <div><b>除菌率</b><span>99.9% 衣物除菌</span></div>
+        <div><b>明星单品</b><span>衣物消毒液 · 除菌洗衣液 · 内衣净</span></div>
+        <div><b>适用人群</b><span>注重健康防护的全年龄家庭</span></div>
+      </div>
+      <ul class="keywords rv"><li>除菌</li><li>专业</li><li>信赖</li><li>松木清香</li></ul>
+    </div>
+    <div class="fig rv">
+      <div class="frame"><img class="plx" src="assets/brand-walch.jpg" alt="威露士 — 冷调蓝白的专业除菌产品静物"></div>
+      <p class="caption"><b>01</b>Clinical Blue</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter flip" id="ch-na" style="--ac:var(--c-na)">
+  <span class="big-no">02</span>
+  <div class="inner">
+    <div class="txt">
+      <p class="brand-en rv">Na · Botanical Origin</p>
+      <h3 class="rv">奈十八本</h3>
+      <p class="tagline rv">日式植萃 · 本味洁净</p>
+      <p class="desc rv">沿光谱向前一步，洁净开始有了呼吸感。奈十八本取意十八种植物本萃，以日式「减法美学」做洗衣——成分表干净得像一张和纸，洗后的衣物只留下织物本身的柔软与植物微息。</p>
+      <div class="spec rv">
+        <div><b>核心配方</b><span>十八种植物本萃</span></div>
+        <div><b>洗感哲学</b><span>低刺激 · 易漂净 · 零残留</span></div>
+        <div><b>明星单品</b><span>植萃洗衣液 · 植萃柔顺剂 · 精细衣物洗</span></div>
+        <div><b>适用人群</b><span>偏好天然成分的极简生活者</span></div>
+      </div>
+      <ul class="keywords rv"><li>植萃</li><li>温和</li><li>留白</li><li>抹茶与亚麻</li></ul>
+    </div>
+    <div class="fig rv">
+      <div class="frame"><img class="plx" src="assets/brand-na.jpg" alt="奈十八本 — 和纸与茶叶旁的植萃产品静物"></div>
+      <p class="caption"><b>02</b>Washi Sage</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-lamama" style="--ac:var(--c-lamama)">
+  <span class="big-no">03</span>
+  <div class="inner">
+    <div class="txt">
+      <p class="brand-en rv">Lamama · Tender Care</p>
+      <h3 class="rv">Lamama</h3>
+      <p class="tagline rv">母婴柔护 · 亲肤安心</p>
+      <p class="desc rv">光谱行至中段，温度开始上升。Lamama 为最娇嫩的肌肤而设——新生儿的连体衣、妈妈的贴身织物，都需要比普通洁净更柔软一级的对待。低敏配方通过皮肤测试，把「安心」洗进每一根纤维。</p>
+      <div class="spec rv">
+        <div><b>核心配方</b><span>低敏亲肤 · 无添加争议成分</span></div>
+        <div><b>安全验证</b><span>皮肤刺激性测试通过</span></div>
+        <div><b>明星单品</b><span>婴儿洗衣液 · 孕婴内衣洗 · 柔护柔顺剂</span></div>
+        <div><b>适用人群</b><span>新生儿家庭与敏感肌人群</span></div>
+      </div>
+      <ul class="keywords rv"><li>亲肤</li><li>低敏</li><li>守护</li><li>棉花暖香</li></ul>
+    </div>
+    <div class="fig rv">
+      <div class="frame"><img class="plx" src="assets/brand-lamama.jpg" alt="Lamama — 暖粉色调的母婴柔护产品静物"></div>
+      <p class="caption"><b>03</b>Morning Blush</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter flip" id="ch-seika" style="--ac:var(--c-seika)">
+  <span class="big-no">04</span>
+  <div class="inner">
+    <div class="txt">
+      <p class="brand-en rv">Seika · Floral Couture</p>
+      <h3 class="rv">菁华</h3>
+      <p class="tagline rv">花木香氛 · 高定洗护</p>
+      <p class="desc rv">越过中点，香气成为主角。菁华以花木香调为衣物做「高定」——栀子、玫瑰与琥珀被收进一颗凝珠，在滚筒中释放出层次分明的三段式留香。衣服晾在阳台，像一座小型花园。</p>
+      <div class="spec rv">
+        <div><b>香调结构</b><span>花木三段式 · 前中后调</span></div>
+        <div><b>留香科技</b><span>微胶囊缓释留香</span></div>
+        <div><b>明星单品</b><span>香氛洗衣凝珠 · 香氛洗衣液 · 护衣留香珠</span></div>
+        <div><b>适用人群</b><span>追求精致日常的都市女性</span></div>
+      </div>
+      <ul class="keywords rv"><li>花木调</li><li>高定</li><li>留香</li><li>栀子与琥珀</li></ul>
+    </div>
+    <div class="fig rv">
+      <div class="frame"><img class="plx" src="assets/brand-seika.jpg" alt="菁华 — 香槟金与花瓣环绕的香氛凝珠静物"></div>
+      <p class="caption"><b>04</b>Champagne Bloom</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch-foryoume" style="--ac:var(--c-foryoume)">
+  <span class="big-no">05</span>
+  <div class="inner">
+    <div class="txt">
+      <p class="brand-en rv">For You Me · Parfum de Linge</p>
+      <h3 class="rv">纺优美</h3>
+      <p class="tagline rv">奢宠香氛 · 衣物香水</p>
+      <p class="desc rv">光谱的尽头，洗衣成为一种私享仪式。纺优美以沙龙香水工艺对待每一件织物——真丝、羊绒与晚装，在夜色花园般的香调中被温柔洗护。穿上它的那一刻，香气先于你抵达。</p>
+      <div class="spec rv">
+        <div><b>香氛工艺</b><span>沙龙级调香 · 衣物香水概念</span></div>
+        <div><b>面料奢护</b><span>真丝羊绒专用 · 纤维级养护</span></div>
+        <div><b>明星单品</b><span>香水洗衣液 · 奢护精华 · 织物香氛喷雾</span></div>
+        <div><b>适用人群</b><span>讲究仪式感的品味藏家</span></div>
+      </div>
+      <ul class="keywords rv"><li>沙龙香</li><li>丝缎</li><li>夜花园</li><li>黑加仑与乌木</li></ul>
+    </div>
+    <div class="fig rv">
+      <div class="frame"><img class="plx" src="assets/brand-foryoume.jpg" alt="纺优美 — 深色丝缎上的黑色香氛瓶静物"></div>
+      <p class="caption"><b>05</b>Noir Garden</p>
+    </div>
+  </div>
+</section>
+
+<section class="matrix shell" id="matrix">
+  <div class="sec-head">
+    <span class="idx">§03</span><h2>矩阵 · 一览</h2><span class="rule"></span><span class="tag">The Matrix</span>
+  </div>
+  <div class="table rv">
+    <div class="row head">
+      <div class="cell">品牌</div><div class="cell">定位</div><div class="cell">核心科技 / 配方</div><div class="cell">标志性香型</div><div class="cell">人群</div>
+    </div>
+    <div class="row">
+      <div class="cell"><span class="b-name"><span class="dot" style="background:var(--c-walch)"></span>威露士<i>Walch</i></span></div>
+      <div class="cell">专业除菌 · 全家安心</div><div class="cell">PCMX 专业除菌成分，99.9% 除菌率</div><div class="cell">松木清香</div><div class="cell">全年龄家庭</div>
+    </div>
+    <div class="row">
+      <div class="cell"><span class="b-name"><span class="dot" style="background:var(--c-na)"></span>奈十八本<i>Na</i></span></div>
+      <div class="cell">日式植萃 · 本味洁净</div><div class="cell">十八种植物本萃，低刺激易漂净</div><div class="cell">抹茶与亚麻</div><div class="cell">极简生活者</div>
+    </div>
+    <div class="row">
+      <div class="cell"><span class="b-name"><span class="dot" style="background:var(--c-lamama)"></span>Lamama<i>Lamama</i></span></div>
+      <div class="cell">母婴柔护 · 亲肤安心</div><div class="cell">低敏亲肤配方，皮肤测试通过</div><div class="cell">棉花暖香</div><div class="cell">新生儿家庭</div>
+    </div>
+    <div class="row">
+      <div class="cell"><span class="b-name"><span class="dot" style="background:var(--c-seika)"></span>菁华<i>Seika</i></span></div>
+      <div class="cell">花木香氛 · 高定洗护</div><div class="cell">微胶囊缓释，三段式留香</div><div class="cell">栀子与琥珀</div><div class="cell">都市精致女性</div>
+    </div>
+    <div class="row">
+      <div class="cell"><span class="b-name"><span class="dot" style="background:var(--c-foryoume)"></span>纺优美<i>For You Me</i></span></div>
+      <div class="cell">奢宠香氛 · 衣物香水</div><div class="cell">沙龙级调香，真丝羊绒纤维养护</div><div class="cell">黑加仑与乌木</div><div class="cell">品味藏家</div>
+    </div>
+  </div>
+</section>
+
+<section class="outro">
+  <p class="en rv">One Spectrum · Every Fabric</p>
+  <h2 class="rv">每一种对干净的想象，<br>都有一个品牌替你回答。</h2>
+  <div class="grad-bar rv"></div>
+</section>
+
+<footer>
+  <p>衣物洗护光谱 — 品牌矩阵概念演示 · VISUAL CONCEPT SITE</p>
+  <div class="marks"><span>威露士</span><span>奈十八本</span><span>Lamama</span><span>菁华</span><span>纺优美</span></div>
+</footer>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
 </html>
