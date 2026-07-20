@@ -76,7 +76,7 @@ window.addEventListener('load', () => {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('威莱品牌矩阵网站加载完成');
+    console.log('光域品牌矩阵网站加载完成');
 
     // Add stagger animation to philosophy items
     const philosophyItems = document.querySelectorAll('.philosophy-item');
