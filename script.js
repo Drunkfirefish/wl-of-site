@@ -51,6 +51,11 @@
     gsap.from(el, { scaleX: 0, duration: 1.4, ease: "power3.inOut", scrollTrigger: { trigger: el, start: "top 90%" } });
   });
 
+  gsap.to("#navProgress", {
+    scaleX: 1, ease: "none",
+    scrollTrigger: { start: 0, end: "max", scrub: 0.3 }
+  });
+
   gsap.to(".hero .bg img", {
     yPercent: 10, ease: "none",
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
